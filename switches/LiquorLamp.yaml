@@ -1,0 +1,8 @@
+platform: mqtt
+name: "Liquor Lamp"
+command_topic: "cmnd/LiquorLamp1/power"
+state_topic: "stat/LiquorLamp1/POWER"
+qos: 1
+payload_on: "ON"
+payload_off: "OFF"
+retain: true
