@@ -1,0 +1,6 @@
+all_lights_off:
+  sequence:
+    # Turn off all lights
+    - service: homeassistant.turn_off
+      data:
+        entity_id: group.all_lights

@@ -1,0 +1,42 @@
+joshua_bedtime:
+  sequence:
+    # Turn off TV LEDs
+    - service: switch.turn_off
+      data:
+        entity_id: switch.tv_leds_switch
+    # Turn off Office LEDs
+    - service: switch.turn_off
+      data:
+        entity_id: switch.office_leds_switch
+    # Turn Off Christmas Tree Outlet
+    - service: switch.turn_off
+      data:
+        entity_id: switch.ext_lr_outlet_switch
+    # Turn on master bedroom light
+    - service: light.turn_on
+      data:
+        entity_id: light.mbr_light_level
+    # Turn on master bedroom aux switch
+    - service: light.turn_on
+      data:
+        entity_id: light.mbr_outlet_level
+    # Turn on master bedroom overhead fan
+    - service: switch.turn_on
+      data:
+        entity_id: switch.mbr_fan_switch
+    # Turn off garage entry light
+    - service: light.turn_off
+      data:
+        entity_id: light.garage_entry_lt_level
+    # Turn off back porch light
+    - service: light.turn_off
+      data:
+        entity_id: light.back_porch_light_level    
+    # Turn off under cabinet lights
+    - service: switch.turn_off
+      data:
+        entity_id: switch.dragon_tech_unknown_type4447_id3031_switch
+    # Arm Abode System
+    - service: script.turn_on
+      entity_id:
+        - script.abode_arm_home

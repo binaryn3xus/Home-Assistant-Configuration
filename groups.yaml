@@ -1,0 +1,198 @@
+#### Views
+lights_switches_view:
+  name: Lights / Switches
+  icon: mdi:lightbulb
+  view: true
+  entities:
+    - group.all_lights
+    - group.all_switches
+    - group.kitchen_lights
+
+automation_scripts_view:
+  name: Automation / Scripts
+  icon: mdi:creation
+  view: true
+  entities:
+    - group.all_automations
+    - group.all_scripts
+
+alarm_cameras_view:
+  name: Alarm / Cameras
+  icon: mdi:cctv
+  view: true
+  entities:
+    - group.cameras
+    - group.abode_alarm
+    - group.ring
+    - group.amcrest_meta
+
+misc_view:
+  name: Misc
+  icon: mdi:buffer
+  view: true
+  entities:
+    - group.power_meters
+    - group.zwave_devices
+    - group.virtual_sensors
+
+#### GROUPS
+
+3d_creality_cr-10:
+  name: Creality CR-10S S4
+  entities:
+    - switch.3d_printer_switch
+    - camera.3d_printer_camera
+
+abode_alarm:
+  name: Abode Alarm
+  entities:
+    - alarm_control_panel.abode_alarm_system
+    - lock.front_door_lock
+    - binary_sensor.back_door
+    - binary_sensor.front_door
+    - binary_sensor.garage_entry_door
+    - binary_sensor.back_kitchen_window_lh
+    - binary_sensor.back_kitchen_window_rh
+    - binary_sensor.side_lr_front_window
+    - binary_sensor.side_lr_rear_window
+    - binary_sensor.lr_front_window_lh
+    - binary_sensor.lr_front_window_rh
+    - binary_sensor.upstairs_siren
+    - binary_sensor.living_room_keypad
+    - binary_sensor.remote
+    - camera.living_room_motion_camera
+    - cover.primary_garage_door
+    - binary_sensor.quick_entry_at_front_door
+    - binary_sensor.quick_entry_garage_door
+    - binary_sensor.lock_and_arm_for_home
+
+cameras:
+  name: Amcrest Cameras
+  entities:
+    - camera.3d_printer_camera
+    - camera.master_bedroom_camera
+    - camera.living_room_camera
+
+amcrest_meta:
+  name: Amcrest Meta Data
+  entities:
+    - sensor.master_bedroom_camera_motion_detected
+    - sensor.master_bedroom_camera_sd_used
+    - sensor.3d_printer_camera_motion_detected
+    - sensor.3d_printer_camera_sd_used
+    - sensor.living_room_camera_motion_detected
+    - sensor.living_room_camera_sd_used
+
+ring:
+  name: Ring Doorbell Sensors
+  entities:
+    - sensor.ring_front_door_last_activity
+    - sensor.ring_front_door_last_ding
+    - sensor.ring_front_door_last_motion
+    - sensor.ring_front_door_volume
+    - sensor.ring_front_door_battery
+    - sensor.ring_front_door_wifi_signal_category
+    - sensor.ring_front_door_wifi_signal_strength
+
+weather_data:
+  name: Weather Info
+  entities:
+    - sun.sun
+    - sensor.moon
+    - sensor.pws_alerts
+    - sensor.pws_weather
+    - sensor.pws_temp_f
+    - sensor.pws_precip_today_in
+    - sensor.pws_relative_humidity
+    - sensor.pws_visibility_mi
+
+hvac_system:
+  name: HVAC System
+  entities:
+    - sensor.main_floor_temperature
+    - sensor.office_temperature
+    - sensor.upstairs_temperature
+    - sensor.master_bedroom_temperature
+    - sensor.bedroom_2_temperature
+    - sensor.old_office_temperature
+    - sensor.main_floor_humidity
+    - sensor.upstairs_humidity
+    - climate.main_floor
+    - climate.upstairs
+    - binary_sensor.main_floor_occupancy
+    - binary_sensor.office_occupancy
+    - binary_sensor.upstairs_occupancy
+    - binary_sensor.master_bedroom_occupancy
+    - binary_sensor.bedroom_2_occupancy
+    - binary_sensor.old_office_occupancy
+
+kitchen_lights:
+  name: Kitchen Lights
+  entities:
+    - light.kitchen_sink_lt_level
+    - light.kitchen_glass_lt_level
+    - light.kitchen_bar_lt_level
+    - switch.dragon_tech_unknown_type4447_id3031_switch
+
+power_meters:
+  name: Power Recorders
+  entities:
+    - sensor.duke_energy_319472558
+    - sensor.3d_printer_power_energy
+    - sensor.3d_printer_power_exporting
+    - sensor.3d_printer_power_interval
+    - sensor.3d_printer_power_interval_2
+    - sensor.3d_printer_power_power
+    - sensor.3d_printer_power_power_2
+    - sensor.3d_printer_power_previous_reading
+    - sensor.3d_printer_power_previous_reading_2
+    - sensor.office_leds_energy
+    - sensor.office_leds_exporting
+    - sensor.office_leds_interval
+    - sensor.office_leds_interval_2
+    - sensor.office_leds_power
+    - sensor.office_leds_power_2
+    - sensor.office_leds_previous_reading
+    - sensor.office_leds_previous_reading_2
+    - sensor.tv_leds_energy
+    - sensor.tv_leds_exporting
+    - sensor.tv_leds_interval
+    - sensor.tv_leds_interval_2
+    - sensor.tv_leds_power
+    - sensor.tv_leds_power_2
+    - sensor.tv_leds_previous_reading
+    - sensor.tv_leds_previous_reading_2
+
+virtual_sensors:
+  name: Virtual Sensors
+  entities:
+    - device_tracker.google_maps_112239156454675366879
+    - sensor.christmas_season
+
+zwave_devices:
+  name: ZWave Devices
+  entities:
+    - zwave.aeotec_zw090_zstick_gen5_us
+    - zwave.back_floodlights
+    - zwave.back_porch_light
+    - zwave.bar_outlet
+    - zwave.3d_printer
+    - zwave.dragon_tech_unknown_type4447_id3031
+    - zwave.ex_lr_outlet
+    - zwave.front_floodlight
+    - zwave.front_porch_light
+    - zwave.garage_entry_lt
+    - zwave.kitchen_bar_lt
+    - zwave.kitchen_glass_lt
+    - zwave.kitchen_sink_li
+    - zwave.living_room_ligh
+    - zwave.living_room_fan
+    - zwave.loft_area_light
+    - zwave.mbr_fan
+    - zwave.mbr_light
+    - zwave.nook_light
+    - zwave.office_leds
+    - zwave.office_light
+    - zwave.primary_garage_l
+    - zwave.stairway_light
+    - zwave.tv_leds

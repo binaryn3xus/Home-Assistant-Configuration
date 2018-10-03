@@ -1,0 +1,55 @@
+sunrise_procedure:
+  sequence:
+    # Turn off TV LEDs
+    - service: switch.turn_off
+      data:
+        entity_id: switch.tv_leds_switch
+    # Turn off Office LEDs
+    - service: switch.turn_off
+      data:
+        entity_id: switch.office_leds_switch
+    # Turn off bar outlet
+    - service: switch.turn_off
+      data:
+        entity_id: switch.bar_outlet_switch
+    # Turn off overhead master bedroom fan
+    - service: switch.turn_off
+      data:
+        entity_id: switch.mbr_fan_switch
+    # Turn off under cabinet lights
+    - service: switch.turn_off
+      data:
+        entity_id: switch.dragon_tech_unknown_type4447_id3031_switch
+    
+    # Turn off master bedroom aux switch
+    - service: light.turn_off
+      data:
+        entity_id: light.mbr_outlet_level
+    # Turn off overhead master bedroom light
+    - service: light.turn_off
+      data:
+        entity_id: light.mbr_light_level
+    # Turn off front porch light
+    - service: light.turn_off
+      data:
+        entity_id: light.front_porch_ligh_level
+    # Turn on front floodlight
+    - service: light.turn_off
+      data:
+        entity_id: light.front_floodlight_level
+    # Turn off back porch light
+    - service: light.turn_off
+      data:
+        entity_id: light.back_porch_light_level
+    # Turn on back floodlight
+    - service: light.turn_off
+      data:
+        entity_id: light.back_floodlights_level
+    # Turn off Garage Entry Light
+    - service: light.turn_off
+      data:
+        entity_id: light.garage_entry_lt_level
+    # Turn Off Christmas Tree Outlet
+    - service: switch.turn_off
+      data:
+        entity_id: switch.ext_lr_outlet_switch
