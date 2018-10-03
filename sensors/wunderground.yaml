@@ -1,0 +1,9 @@
+platform: wunderground
+api_key: !secret weather_underground_api
+monitored_conditions:
+  - alerts
+  - weather
+  - temp_f
+  - relative_humidity
+  - visibility_mi
+  - precip_today_in

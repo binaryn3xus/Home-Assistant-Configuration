@@ -1,0 +1,3 @@
+platform: harmony
+name: Living Room Hub
+host: !secret ip_address_harmony_hub

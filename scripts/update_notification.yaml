@@ -1,0 +1,8 @@
+update_notification:
+  sequence:
+    - service: notify.pixel2xl
+      data:
+        message: "Update Available"
+        title: "There is a new Home Assistant release available."
+        data:
+          icon: "https://home-assistant.io/demo/favicon-192x192.png"

@@ -1,0 +1,42 @@
+# Logs
+logs
+*.log
+# Python cache
+__pycache__
+*.pyc
+
+# Other
+*.uuid
+*.conf
+*.db
+*.db-journal
+*.log
+*.noload
+*.txt
+*.sqlite
+*.xml
+*.backup
+*.cookies
+life360.sh
+.ip_authenticated.yaml
+.config_entries.json
+*.google.token
+.google.token
+.ring_cache.pickle
+.spotify-token-cache
+.storage
+abodepy_cache.pickle
+camera_recording.py
+home-assistant.env
+home-assistant.*
+known_devices.yaml
+entity_registry.yaml
+secrets.yaml
+google_calendars.yaml
+zwave_device_config.yaml
+components
+deps
+tts
+.cloud
+*.pickle
+.pc-session

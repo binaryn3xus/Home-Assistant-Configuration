@@ -1,0 +1,51 @@
+- id: Joshua_Morning_Departure
+  alias: "Joshua Morning Work Departure"
+  trigger:
+    platform: time
+    hours: 5
+    minutes: 40
+    seconds: 0
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    service: script.morning_work_departure
+
+- id: Sunrise_Procedure
+  alias: "Sunrise Procedure"
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: "00:05:00"
+  action:
+    service: script.sunrise_procedure
+
+- id: Sunset_Procedure
+  alias: "Sunset Procedure"
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-01:00:00"
+  action:
+    service: script.sunset_procedure
+
+- alias: Home Assistant Update Notification
+  trigger:
+    platform: state
+    entity_id: updater.updater
+  action:
+    service: script.update_notification
+
+- alias: Bedroom Motion Detection Alert
+  trigger:
+    platform: state
+    entity_id: sensor.master_bedroom_camera_motion_detected
+    from: 'False'
+    to: 'True'
+  action:
+    service: script.alert_bedroom_motion
