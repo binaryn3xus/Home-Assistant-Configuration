@@ -37,6 +37,7 @@ joshua_bedtime:
       data:
         entity_id: switch.dragon_tech_unknown_type4447_id3031_switch
     # Arm Abode System
-    - service: script.turn_on
-      entity_id:
-        - script.abode_arm_home
+    - service: alarm_control_panel.alarm_arm_home
+      data:
+        entity_id: 
+          - alarm_control_panel.abode_alarm_system

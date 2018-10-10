@@ -29,16 +29,6 @@ mqtt:
   username: !secret mqtt_username
   password: !secret mqtt_password
 
-#switch:
-#  - platform: mqtt
-#    name: "Table Light"
-#    command_topic: "cmnd/LiquorLamp1/power"
-#    state_topic: "stat/LiquorLamp1/POWER"
-#    qos: 1
-#    payload_on: "ON"
-#    payload_off: "OFF"
-#    retain: true
-
 #Emulated Hue (For Echo Support)
 emulated_hue:
   expose_by_default: false
@@ -73,44 +63,9 @@ zwave:
   polling_interval: 10000
   network_key: !secret zwave_network_key
 
-
-#amcrest:
-#  - host: !secret ip_address_master_bedroom_camera
-#    name: Master Bedroom Camera
-#    username: !secret amcrest_username
-#    password: !secret amcrest_password
-#    sensors:
-#      - motion_detector
-#      - sdcard
-#  - host: !secret ip_address_3d_printer_camera
-#    name: 3D Printer Camera
-#    username: !secret amcrest_username
-#    password: !secret amcrest_password
-#    sensors:
-#      - motion_detector
-#      - sdcard
-#  - host: !secret ip_address_living_room_camera
-#    name: Living Room Camera
-#    username: !secret amcrest_username
-#    password: !secret amcrest_password
-#    sensors:
-#      - motion_detector
-#      - sdcard
-
-#ring:
-#  username: !secret ring_username
-#  password: !secret ring_password
-
-#device_tracker:
-#  - platform: google_maps
-#    username: !secret second_google_account_email
-#    password: !secret second_google_account_password
-
-#tts:
-#  - platform: google
-#    cache: true
-#    cache_dir: /tmp/tts
-#    time_memory: 300
+ring:
+  username: !secret ring_username
+  password: !secret ring_password
 
 alexa:
 amcrest: !include_dir_list amcrest/
@@ -118,7 +73,7 @@ dialogflow:
 intent_script: !include intent_script.yaml
 automation: !include automations.yaml
 group: !include groups.yaml
-device-tracker: !include_dir_list device-trackers/
+device_tracker: !include_dir_list device-trackers/
 notify: !include_dir_list notifications/
 remote: !include_dir_list remotes/
 script: !include_dir_merge_named scripts/
