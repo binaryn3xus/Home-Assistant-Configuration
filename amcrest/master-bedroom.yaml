@@ -1,0 +1,7 @@
+host: !secret ip_address_master_bedroom_camera
+name: Master Bedroom Camera
+username: !secret amcrest_username
+password: !secret amcrest_password
+sensors:
+  - motion_detector
+  - sdcard
