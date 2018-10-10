@@ -37,7 +37,6 @@ zwave_device_config.yaml
 emulated_hue_ids.json
 components
 deps
-tts
 .cloud
 *.pickle
 .pc-session
