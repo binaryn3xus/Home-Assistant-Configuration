@@ -8,10 +8,6 @@ sunset_procedure:
     - service: switch.turn_on
       data:
         entity_id: switch.office_leds_switch
-    # Turn on front porch light
-    #- service: light.turn_on
-    #  data:
-    #    entity_id: light.front_porch_ligh_level
     # Turn on front floodlight
     - service: light.turn_on
       data:
