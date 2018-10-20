@@ -1,27 +1,32 @@
 title: Joshua's Home
 views:
   - title: Home
+    icon: mdi:home-assistant
     cards:
       - type: vertical-stack
         cards:
-        - type: picture-entity
+        - type: picture-glance
           title: Master Bedroom Camera
-          entity: camera.master_bedroom_camera
+          entities: 
+            - light.mbr_light_level
+            - sensor.master_bedroom_camera_motion_detected
+            - sensor.master_bedroom_camera_sd_used
           camera_image: camera.master_bedroom_camera
-          show_info: true
-          tap_action: dialog
-        - type: picture-entity
+        - type: picture-glance
           title: 3D Printer Camera
-          entity: camera.3d_printer_camera
+          entities:
+            - sensor.3d_printer_camera_motion_detected
+            - sensor.3d_printer_camera_sd_used
           camera_image: camera.3d_printer_camera
-          show_info: true
-          tap_action: dialog
-        - type: picture-entity
+        - type: picture-glance
           title: Living Room Camera
-          entity: camera.living_room_camera
+          entities: 
+            - light.living_room_ligh_level
+            - light.nook_light_level
+            - switch.living_room_fan_switch
+            - sensor.living_room_camera_motion_detected
+            - sensor.living_room_camera_sd_used
           camera_image: camera.living_room_camera
-          show_info: true
-          tap_action: dialog
       - type: entities
         title: Abode Alarm
         show_header_toggle: true
