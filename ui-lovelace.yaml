@@ -3,6 +3,8 @@ views:
   - title: Home
     icon: mdi:home-assistant
     cards:
+      - type: weather-forecast
+        entity: weather.dark_sky
       - type: vertical-stack
         cards:
         - type: picture-glance
@@ -49,15 +51,6 @@ views:
           - binary_sensor.quick_entry_at_front_door
           - binary_sensor.quick_entry_garage_door
           - binary_sensor.lock_and_arm_for_home
-      - type: entities
-        title: Amcrest Meta Data
-        show_header_toggle: true
-        entities:
-          - sensor.master_bedroom_camera_motion_detected
-          - sensor.master_bedroom_camera_sd_used
-          - sensor.3d_printer_camera_motion_detected
-          - sensor.3d_printer_camera_sd_used
-          - sensor.living_room_camera_motion_detected
       - type: entities
         title: Ring Doorbell Sensors
         show_header_toggle: true

@@ -67,6 +67,10 @@ ring:
   username: !secret ring_username
   password: !secret ring_password
 
+weather:
+  - platform: darksky
+    api_key: !secret dark_sky_api
+
 alexa:
 amcrest: !include_dir_list amcrest/
 dialogflow:
