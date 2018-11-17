@@ -29,39 +29,24 @@ views:
             - sensor.living_room_camera_motion_detected
             - sensor.living_room_camera_sd_used
           camera_image: camera.living_room_camera
-      - type: entities
-        title: Abode Alarm
-        show_header_toggle: true
-        entities:
-          - alarm_control_panel.abode_alarm_system
-          - lock.front_door_lock
-          - binary_sensor.back_door
-          - binary_sensor.front_door
-          - binary_sensor.garage_entry_door
-          - binary_sensor.back_kitchen_window_lh
-          - binary_sensor.back_kitchen_window_rh
-          - binary_sensor.side_lr_front_window
-          - binary_sensor.side_lr_rear_window
-          - binary_sensor.lr_front_window_lh
-          - binary_sensor.lr_front_window_rh
-          - binary_sensor.upstairs_siren
-          - binary_sensor.living_room_keypad
-          - binary_sensor.remote
-          - cover.primary_garage_door
-          - binary_sensor.quick_entry_at_front_door
-          - binary_sensor.quick_entry_garage_door
-          - binary_sensor.lock_and_arm_for_home
-      - type: entities
-        title: Ring Doorbell Sensors
-        show_header_toggle: true
-        entities:
-          - sensor.ring_front_door_last_activity
-          - sensor.ring_front_door_last_ding
-          - sensor.ring_front_door_last_motion
-          - sensor.ring_front_door_volume
-          - sensor.ring_front_door_battery
-          - sensor.ring_front_door_wifi_signal_category
-          - sensor.ring_front_door_wifi_signal_strength
+      - type: conditional
+        conditions:
+          - entity: switch.creality_cr10s_s4_switch
+            state: "on"
+        card:
+          type: entities
+          entities:
+            - switch.creality_cr10s_s4_switch
+            - binary_sensor.creality_cr10s_s4_printing
+            - binary_sensor.creality_cr10s_s4_printing_error
+            - sensor.creality_cr10s_s4_job_percentage
+            - sensor.creality_cr10s_s4_target_bed_temp
+            - sensor.creality_cr10s_s4_actual_bed_temp
+            - sensor.creality_cr10s_s4_target_tool0_temp
+            - sensor.creality_cr10s_s4_actual_tool0_temp
+            - sensor.creality_cr10s_s4_current_state
+            - sensor.creality_cr10s_s4_time_elapsed
+            - sensor.creality_cr10s_s4_time_remaining
       - type: entities
         title: Weather Info
         show_header_toggle: true
@@ -75,181 +60,11 @@ views:
           - sensor.pws_relative_humidity
           - sensor.pws_visibility_mi
       - type: entities
-        title: HVAC System
-        show_header_toggle: true
-        entities:
-          - sensor.main_floor_temperature
-          - sensor.office_temperature
-          - sensor.upstairs_temperature
-          - sensor.master_bedroom_temperature
-          - sensor.bedroom_2_temperature
-          - sensor.old_office_temperature
-          - sensor.main_floor_humidity
-          - sensor.upstairs_humidity
-          - climate.main_floor
-          - climate.upstairs
-          - binary_sensor.main_floor_occupancy
-          - binary_sensor.office_occupancy
-          - binary_sensor.upstairs_occupancy
-          - binary_sensor.master_bedroom_occupancy
-          - binary_sensor.bedroom_2_occupancy
-          - binary_sensor.old_office_occupancy
-      - type: entities
-        title: All Kitchen Lights
-        show_header_toggle: true
-        entities:
-          - light.kitchen_sink_lt_level
-          - light.kitchen_glass_lt_level
-          - light.kitchen_bar_lt_level
-          - switch.dragon_tech_unknown_type4447_id3031_switch
-      - type: entities
-        title: Power Recorders
-        show_header_toggle: true
-        entities:
-          - sensor.duke_energy_319472558
-          - sensor.3d_printer_energy
-          - sensor.3d_printer_exporting
-          - sensor.3d_printer_interval
-          - sensor.3d_printer_interval_2
-          - sensor.3d_printer_power
-          - sensor.3d_printer_power_2
-          - sensor.3d_printer_previous_reading
-          - sensor.3d_printer_previous_reading_2
-          - sensor.office_leds_energy
-          - sensor.office_leds_exporting
-          - sensor.office_leds_interval
-          - sensor.office_leds_interval_2
-          - sensor.office_leds_power
-          - sensor.office_leds_power_2
-          - sensor.office_leds_previous_reading
-          - sensor.office_leds_previous_reading_2
-          - sensor.tv_leds_energy
-          - sensor.tv_leds_exporting
-          - sensor.tv_leds_interval
-          - sensor.tv_leds_interval_2
-          - sensor.tv_leds_power
-          - sensor.tv_leds_power_2
-          - sensor.tv_leds_previous_reading
-          - sensor.tv_leds_previous_reading_2
-      - type: entities
         title: Virtual Sensors
         show_header_toggle: true
         entities:
           - device_tracker.google_maps_112239156454675366879
           - sensor.christmas_season
-      - type: entities
-        title: ZWave Devices
-        show_header_toggle: true
-        entities:
-          - zwave.aeotec_zw090_zstick_gen5_us
-          - zwave.back_floodlights
-          - zwave.back_porch_light
-          - zwave.bar_outlet
-          - zwave.3d_printer
-          - zwave.dragon_tech_unknown_type4447_id3031
-          - zwave.front_floodlight
-          - zwave.garage_entry_lt
-          - zwave.kitchen_bar_lt
-          - zwave.kitchen_glass_lt
-          - zwave.living_room_ligh
-          - zwave.living_room_fan
-          - zwave.loft_area_light
-          - zwave.mbr_fan
-          - zwave.mbr_light
-          - zwave.nook_light
-          - zwave.office_leds
-          - zwave.office_light
-          - zwave.primary_garage_l
-          - zwave.stairway_light
-          - zwave.tv_leds
-      - type: entities
-        title: All Scripts
-        show_header_toggle: true
-        entities:
-          - script.abode_arm_home
-          - script.alert_bedroom_motion
-          - script.all_lights_off
-          - script.all_lights_on
-          - script.google_talk
-          - script.joshua_bedtime
-          - script.morning_work_departure
-          - script.sunrise_procedure
-          - script.sunset_procedure
-          - script.update_notification
-      - type: entities
-        title: All Locks
-        show_header_toggle: true
-        entities:
-          - lock.front_door_lock
-      - type: entities
-        title: all covers
-        show_header_toggle: true
-        entities:
-          - cover.primary_garage_door
-      - type: entities
-        title: All Switches
-        show_header_toggle: true
-        entities:
-          - switch.3d_printer_switch
-          - switch.bar_outlet_switch
-          - switch.dragon_tech_unknown_type4447_id3031_switch
-          - switch.ext_lr_outlet_switch
-          - switch.living_room_fan_switch
-          - switch.lock_doors_on_away_arm
-          - switch.lock_doors_on_home_arm
-          - switch.mbr_fan_switch
-          - switch.office_leds_switch
-          - switch.tv_leds_switch
-          - switch.table_light
-      - type: entities
-        title: All Devices
-        show_header_toggle: true
-        entities:
-          - device_tracker.google_maps_112239156454675366879
-      - type: entities
-        title: all remotes
-        show_header_toggle: true
-        entities:
-          - remote.living_room_hub
-      - type: entities
-        title: All Automations
-        show_header_toggle: true
-        entities:
-          - automation.bedroom_motion_detection_alert
-          - automation.home_assistant_update_notification
-          - automation.joshua_morning_work_departure
-          - automation.sunrise_procedure
-          - automation.sunset_procedure
-      - type: entities
-        title: All Lights
-        show_header_toggle: true
-        entities:
-          - light.back_floodlights_level
-          - light.back_porch_light_level
-          - light.front_floodlight_level
-          - light.front_porch_ligh_level
-          - light.garage_entry_lt_level
-          - light.kitchen_bar_lt_level
-          - light.kitchen_glass_lt_level
-          - light.kitchen_sink_lt_level
-          - light.living_room_ligh_level
-          - light.loft_area_light_level
-          - light.mbr_light_level
-          - light.mbr_outlet_level
-          - light.nook_light_level
-          - light.office_light_level
-          - light.primary_garage_l_level
-          - light.stairway_light_level
-      - type: media-control
-        entity: media_player.googlehome8049
-      - type: media-control
-        entity: media_player.kitchen_home
-      - type: media-control
-        entity: media_player.master_bedroom_speaker
-      - type: weather-forecast
-        entity: weather.main_floor
-      - type: weather-forecast
-        entity: weather.upstairs
   - title: Lights / Switches
     icon: mdi:lightbulb
     cards:
@@ -277,7 +92,7 @@ views:
         title: All Switches
         show_header_toggle: true
         entities:
-          - switch.3d_printer_switch
+          - switch.creality_cr10s_s4_switch
           - switch.bar_outlet_switch
           - switch.dragon_tech_unknown_type4447_id3031_switch
           - switch.ext_lr_outlet_switch
@@ -312,85 +127,38 @@ views:
         title: All Scripts
         show_header_toggle: true
         entities:
-          - script.abode_arm_home
-          - script.alert_bedroom_motion
           - script.all_lights_off
           - script.all_lights_on
-          - script.google_talk
           - script.joshua_bedtime
           - script.morning_work_departure
           - script.sunrise_procedure
           - script.sunset_procedure
           - script.update_notification
-  - title: Alarm / Cameras
+  - title: Cameras
     icon: mdi:cctv
     cards:
-      - type: picture-entity
-        title: 3D Printer Camera
-        entity: camera.3d_printer_camera
-        camera_image: camera.3d_printer_camera
-        show_info: true
-        tap_action: dialog
-      - type: picture-entity
+      - type: picture-glance
         title: Master Bedroom Camera
-        entity: camera.master_bedroom_camera
-        camera_image: camera.master_bedroom_camera
-        show_info: true
-        tap_action: dialog
-      - type: picture-entity
-        title: Living Room Camera
-        entity: camera.living_room_camera
-        camera_image: camera.living_room_camera
-        show_info: true
-        tap_action: dialog
-      - type: entities
-        title: Abode Alarm
-        show_header_toggle: true
-        entities:
-          - alarm_control_panel.abode_alarm_system
-          - lock.front_door_lock
-          - binary_sensor.back_door
-          - binary_sensor.front_door
-          - binary_sensor.garage_entry_door
-          - binary_sensor.back_kitchen_window_lh
-          - binary_sensor.back_kitchen_window_rh
-          - binary_sensor.side_lr_front_window
-          - binary_sensor.side_lr_rear_window
-          - binary_sensor.lr_front_window_lh
-          - binary_sensor.lr_front_window_rh
-          - binary_sensor.upstairs_siren
-          - binary_sensor.living_room_keypad
-          - binary_sensor.remote
-          - cover.primary_garage_door
-          - binary_sensor.quick_entry_at_front_door
-          - binary_sensor.quick_entry_garage_door
-          - binary_sensor.lock_and_arm_for_home
-      - type: picture-entity
-        title: Living Room Motion Camera
-        entity: camera.living_room_motion_camera
-        camera_image: camera.living_room_motion_camera
-        show_info: true
-        tap_action: dialog
-      - type: entities
-        title: Ring Doorbell Sensors
-        show_header_toggle: true
-        entities:
-          - sensor.ring_front_door_last_activity
-          - sensor.ring_front_door_last_ding
-          - sensor.ring_front_door_last_motion
-          - sensor.ring_front_door_volume
-          - sensor.ring_front_door_battery
-          - sensor.ring_front_door_wifi_signal_category
-          - sensor.ring_front_door_wifi_signal_strength
-      - type: entities
-        title: Amcrest Meta Data
-        show_header_toggle: true
-        entities:
+        entities: 
+          - light.mbr_light_level
           - sensor.master_bedroom_camera_motion_detected
           - sensor.master_bedroom_camera_sd_used
+        camera_image: camera.master_bedroom_camera
+      - type: picture-glance
+        title: 3D Printer Camera
+        entities:
           - sensor.3d_printer_camera_motion_detected
           - sensor.3d_printer_camera_sd_used
+        camera_image: camera.3d_printer_camera
+      - type: picture-glance
+        title: Living Room Camera
+        entities: 
+          - light.living_room_ligh_level
+          - light.nook_light_level
+          - switch.living_room_fan_switch
           - sensor.living_room_camera_motion_detected
+          - sensor.living_room_camera_sd_used
+        camera_image: camera.living_room_camera
   - title: Misc
     icon: mdi:buffer
     cards:

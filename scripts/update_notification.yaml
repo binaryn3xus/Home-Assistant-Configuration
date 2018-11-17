@@ -1,6 +1,6 @@
 update_notification:
   sequence:
-    - service: notify.pixel2xl
+    - service: notify.JoshuaAndroidPhone
       data:
         message: "Update Available"
         title: "There is a new Home Assistant release available."

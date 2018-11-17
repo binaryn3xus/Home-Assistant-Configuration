@@ -27,7 +27,6 @@ I regularly update my configuration files. You can check my current HA version [
     * [Join](https://www.home-assistant.io/components/joaoapps_join/) - Join is an awesome app that allows you to take notifications based on an IP. I found it when pushbullet went to a pay scale and I never looked back. The developer makes a lot of useful automation apps.
   * Remotes / Hubs
     * [OctoPrint](https://www.home-assistant.io/components/octoprint/) (_Work In Progress_)
-    * [Harmony Hub](https://www.home-assistant.io/components/remote.harmony/) - I dont have any thing really set up for this yet. Just connected. I would like to control the Xbox/TV with it. Bring back the `Xbox On` feature since Microsoft removed the Kinect on Xbox One X
   * Sensors
     * [EcoBee Thermostat](https://www.home-assistant.io/components/ecobee/)
     * [Weather Underground](https://www.home-assistant.io/components/sensor.wunderground/) - Though I may switch to [Dark Sky](https://www.home-assistant.io/components/weather.darksky/) eventually

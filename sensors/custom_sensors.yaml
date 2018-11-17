@@ -2,8 +2,9 @@ platform: template
 sensors:
   christmas_season:
     friendly_name: "Christmas Season"
+    entity_id: sensor.date__time
     value_template: >
-            {% if now().strftime("%j") | int  > 315 and now().strftime("%j") | int  < 15 %}
+            {% if now().strftime("%j") | int  > 315 or now().strftime("%j") | int  < 15 %}
               true
             {% else %}
               false

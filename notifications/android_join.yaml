@@ -1,5 +1,5 @@
 platform: joaoapps_join
 api_key: !secret join_api_key
-device_names: Pixel2XL
-name: Pixel2XL
-device_id: !secret pixel2xl_id
+device_names: JoshuaAndroidPhone
+name: JoshuaAndroidPhone
+device_id: !secret joshua_android_id

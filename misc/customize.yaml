@@ -33,10 +33,6 @@
         friendly_name: TV LEDs
         emulated_hue_hidden: false
         icon: mdi:led-outline
-     switch.office_leds_switch:
-        friendly_name: Office LEDs
-        emulated_hue_hidden: false
-        icon: mdi:led-outline
      switch.bar_outlet_switch:
         friendly_name: Bar Outlet
         emulated_hue_hidden: false
@@ -91,6 +87,10 @@
         friendly_name: Camera Motion Sensor
         emulated_hue_hidden: true
         icon: mdi:alarm-light
+     switch.creality_cr10s_s4:
+        friendly_name: Creality CR10 S4
+        emulated_hue_hidden: true
+        icon: mdi:printer-3d
  
  ####Customize Media Players####
  

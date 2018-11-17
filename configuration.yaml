@@ -42,10 +42,11 @@ ecobee:
   api_key: !secret ecobee_api_key
 
 octoprint:
-  host: !secret octoprint_host_ip
-  api_key: !secret octoprint_api_key
-  bed: true
-  number_of_tools: 1
+  - host: !secret octoprint_host_ip
+    api_key: !secret octoprint_api_key
+    name: Creality CR-10S S4
+    bed: true
+    number_of_tools: 1
 
 abode:
   username: !secret abode_username
@@ -54,8 +55,8 @@ abode:
   polling: False
 
 joaoapps_join:
-  - name: Pixel2XL
-    device_id: !secret pixel2xl_id
+  - name: JoshuaAndroidDevice
+    device_id: !secret joshua_android_id
     api_key: !secret join_api_key
 
 zwave:
@@ -79,7 +80,6 @@ automation: !include automations.yaml
 group: !include groups.yaml
 device_tracker: !include_dir_list device-trackers/
 notify: !include_dir_list notifications/
-remote: !include_dir_list remotes/
 script: !include_dir_merge_named scripts/
 sensor: !include_dir_list sensors/
 switch: !include_dir_list switches/

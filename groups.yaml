@@ -138,22 +138,22 @@ power_meters:
   name: Power Recorders
   entities:
     - sensor.duke_energy_319472558
-    - sensor.3d_printer_power_energy
-    - sensor.3d_printer_power_exporting
-    - sensor.3d_printer_power_interval
-    - sensor.3d_printer_power_interval_2
-    - sensor.3d_printer_power_power
-    - sensor.3d_printer_power_power_2
-    - sensor.3d_printer_power_previous_reading
-    - sensor.3d_printer_power_previous_reading_2
-    - sensor.office_leds_energy
-    - sensor.office_leds_exporting
-    - sensor.office_leds_interval
-    - sensor.office_leds_interval_2
-    - sensor.office_leds_power
-    - sensor.office_leds_power_2
-    - sensor.office_leds_previous_reading
-    - sensor.office_leds_previous_reading_2
+    - sensor.creality_cr10s_s4_energy
+    - sensor.creality_cr10s_s4_exporting
+    - sensor.creality_cr10s_s4_interval
+    - sensor.creality_cr10s_s4_interval_2
+    - sensor.creality_cr10s_s4_power
+    - sensor.creality_cr10s_s4_power_2
+    - sensor.creality_cr10s_s4_previous_reading
+    - sensor.creality_cr10s_s4_previous_reading_2
+    - sensor.ender_3_energy
+    - sensor.ender_3_exporting
+    - sensor.ender_3_interval
+    - sensor.ender_3_interval_2
+    - sensor.ender_3_power
+    - sensor.ender_3_power_2
+    - sensor.ender_3_previous_reading
+    - sensor.ender_3_previous_reading_2
     - sensor.tv_leds_energy
     - sensor.tv_leds_exporting
     - sensor.tv_leds_interval
@@ -163,10 +163,36 @@ power_meters:
     - sensor.tv_leds_previous_reading
     - sensor.tv_leds_previous_reading_2
 
+Octoprint_Creality_CR10S_S4:
+  name: Octoprint Creality CR10S S4
+  entities:
+    - binary_sensor.creality_cr10s_s4_printing
+    - binary_sensor.creality_cr10s_s4_printing_error
+    - sensor.creality_cr10s_s4_target_bed_temp
+    - sensor.creality_cr10s_s4_actual_bed_temp
+    - sensor.creality_cr10s_s4_target_tool0_temp
+    - sensor.creality_cr10s_s4_actual_tool0_temp
+    - sensor.creality_cr10s_s4_current_state
+    - sensor.creality_cr10s_s4_job_percentage
+    - sensor.creality_cr10s_s4_exporting
+    - sensor.creality_cr10s_s4_time_elapsed
+    - sensor.creality_cr10s_s4_time_remaining
+
+time_values:
+  name: Date & Time Values
+  entities:
+    - sensor.date
+    - sensor.date__time
+    - sensor.internet_time
+    - sensor.time
+    - sensor.time__date
+    - sensor.time_utc
+
 virtual_sensors:
   name: Virtual Sensors
   entities:
     - device_tracker.google_maps_112239156454675366879
+    - device_tracker.google_maps_jgarrisonappsgmailcom
     - sensor.christmas_season
 
 zwave_devices:
@@ -191,7 +217,7 @@ zwave_devices:
     - zwave.mbr_fan
     - zwave.mbr_light
     - zwave.nook_light
-    - zwave.office_leds
+    - zwave.ender_3
     - zwave.office_light
     - zwave.primary_garage_l
     - zwave.stairway_light

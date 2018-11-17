@@ -34,14 +34,16 @@
   action:
     service: script.sunset_procedure
 
-- alias: Home Assistant Update Notification
+- id: Home_Assistant_Update_Notification
+  alias: Home Assistant Update Notification
   trigger:
     platform: state
     entity_id: updater.updater
   action:
     service: script.update_notification
 
-- alias: Bedroom Motion Detection Alert
+- id: Bedroom_Motion_Detection_Alert
+  alias: Bedroom Motion Detection Alert
   trigger:
     platform: state
     entity_id: sensor.master_bedroom_camera_motion_detected
@@ -49,3 +51,12 @@
     to: 'True'
   action:
     service: script.alert_bedroom_motion
+
+- id: 3D_Print_Finished_Alert
+  alias: 3D Print Finished Alert
+  trigger:
+    platform: state
+    entity_id: sensor.creality_cr10s_s4_current_state
+    from: 'Printing from SD'
+  action:
+    service: script.alert_3d_print_finished
