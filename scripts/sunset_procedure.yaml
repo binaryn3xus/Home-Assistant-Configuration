@@ -7,7 +7,7 @@ sunset_procedure:
     # Turn on Office LEDs
     - service: switch.turn_on
       data:
-        entity_id: switch.office_leds_switch
+        entity_id: switch.office_leds
     # Turn on front floodlight
     - service: light.turn_on
       data:

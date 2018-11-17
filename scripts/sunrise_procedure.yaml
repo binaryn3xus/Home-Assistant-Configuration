@@ -7,7 +7,7 @@ sunrise_procedure:
     # Turn off Office LEDs
     - service: switch.turn_off
       data:
-        entity_id: switch.office_leds_switch
+        entity_id: switch.office_leds
     # Turn off bar outlet
     - service: switch.turn_off
       data:

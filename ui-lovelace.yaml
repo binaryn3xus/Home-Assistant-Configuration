@@ -100,7 +100,7 @@ views:
           - switch.lock_doors_on_away_arm
           - switch.lock_doors_on_home_arm
           - switch.mbr_fan_switch
-          - switch.office_leds_switch
+          - switch.office_leds
           - switch.tv_leds_switch
           - switch.table_light
       - type: entities
