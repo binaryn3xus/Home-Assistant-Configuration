@@ -20,11 +20,11 @@ sunset_procedure:
     - service: light.turn_on
       data:
         entity_id: light.back_floodlights_level
-    # Turn off under cabinet lights
+    # Turn on under cabinet lights
     - service: switch.turn_on
       data:
         entity_id: switch.dragon_tech_unknown_type4447_id3031_switch
-    # Turn Off Christmas Tree Outlet
+    # Turn on Christmas Tree Outlet
     - service_template: >
             {% if is_state('sensor.christmas_season', 'true') %}
               switch.turn_on
@@ -33,3 +33,12 @@ sunset_procedure:
             {% endif %}
       data:
         entity_id: switch.ext_lr_outlet_switch
+    # Turn on Christmas Lights Outside
+    - service_template: >
+            {% if is_state('sensor.christmas_season', 'true') %}
+              switch.turn_on
+            {% else %}
+              switch.turn_off
+            {% endif %}
+      data:
+        entity_id: switch.ge_12721_lighting_control_duplex_receptacle_switch

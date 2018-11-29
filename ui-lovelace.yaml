@@ -3,8 +3,22 @@ views:
   - title: Home
     icon: mdi:home-assistant
     cards:
-      - type: weather-forecast
-        entity: weather.dark_sky
+      - type: vertical-stack
+        cards:
+        - type: weather-forecast
+          entity: weather.dark_sky
+        - type: entities
+          title: Weather Info
+          show_header_toggle: true
+          entities:
+            - sun.sun
+            - sensor.moon
+            - sensor.pws_alerts
+            - sensor.pws_weather
+            - sensor.pws_temp_f
+            - sensor.pws_precip_today_in
+            - sensor.pws_relative_humidity
+            - sensor.pws_visibility_mi
       - type: vertical-stack
         cards:
         - type: picture-glance
@@ -35,6 +49,8 @@ views:
             state: "on"
         card:
           type: entities
+          title: Creality CR10S S4
+          show_header_toggle: true
           entities:
             - switch.creality_cr10s_s4_switch
             - binary_sensor.creality_cr10s_s4_printing
@@ -47,24 +63,45 @@ views:
             - sensor.creality_cr10s_s4_current_state
             - sensor.creality_cr10s_s4_time_elapsed
             - sensor.creality_cr10s_s4_time_remaining
-      - type: entities
-        title: Weather Info
-        show_header_toggle: true
-        entities:
-          - sun.sun
-          - sensor.moon
-          - sensor.pws_alerts
-          - sensor.pws_weather
-          - sensor.pws_temp_f
-          - sensor.pws_precip_today_in
-          - sensor.pws_relative_humidity
-          - sensor.pws_visibility_mi
+      - type: conditional
+        conditions:
+          - entity: switch.ender_3_switch
+            state: "on"
+        card:
+          type: entities
+          title: Ender 3
+          show_header_toggle: true
+          entities:
+            - switch.ender_3_switch
       - type: entities
         title: Virtual Sensors
         show_header_toggle: true
         entities:
           - device_tracker.google_maps_112239156454675366879
           - sensor.christmas_season
+  - title: 3D Printers
+    icon: mdi:printer-3d
+    cards:
+      - type: entities
+        title: Creality CR10S S4
+        show_header_toggle: true
+        entities:
+          - switch.creality_cr10s_s4_switch
+          - binary_sensor.creality_cr10s_s4_printing
+          - binary_sensor.creality_cr10s_s4_printing_error
+          - sensor.creality_cr10s_s4_job_percentage
+          - sensor.creality_cr10s_s4_target_bed_temp
+          - sensor.creality_cr10s_s4_actual_bed_temp
+          - sensor.creality_cr10s_s4_target_tool0_temp
+          - sensor.creality_cr10s_s4_actual_tool0_temp
+          - sensor.creality_cr10s_s4_current_state
+          - sensor.creality_cr10s_s4_time_elapsed
+          - sensor.creality_cr10s_s4_time_remaining
+      - type: entities
+        title: Ender 3
+        show_header_toggle: true
+        entities:
+          - switch.ender_3_switch          
   - title: Lights / Switches
     icon: mdi:lightbulb
     cards:
@@ -102,7 +139,7 @@ views:
           - switch.mbr_fan_switch
           - switch.office_leds
           - switch.tv_leds_switch
-          - switch.table_light
+          - switch.ge_12721_lighting_control_duplex_receptacle_switch
       - type: entities
         title: All Kitchen Lights
         show_header_toggle: true
@@ -159,66 +196,3 @@ views:
           - sensor.living_room_camera_motion_detected
           - sensor.living_room_camera_sd_used
         camera_image: camera.living_room_camera
-  - title: Misc
-    icon: mdi:buffer
-    cards:
-      - type: entities
-        title: Power Recorders
-        show_header_toggle: true
-        entities:
-          - sensor.duke_energy_319472558
-          - sensor.3d_printer_energy
-          - sensor.3d_printer_exporting
-          - sensor.3d_printer_interval
-          - sensor.3d_printer_interval_2
-          - sensor.3d_printer_power
-          - sensor.3d_printer_power_2
-          - sensor.3d_printer_previous_reading
-          - sensor.3d_printer_previous_reading_2
-          - sensor.office_leds_energy
-          - sensor.office_leds_exporting
-          - sensor.office_leds_interval
-          - sensor.office_leds_interval_2
-          - sensor.office_leds_power
-          - sensor.office_leds_power_2
-          - sensor.office_leds_previous_reading
-          - sensor.office_leds_previous_reading_2
-          - sensor.tv_leds_energy
-          - sensor.tv_leds_exporting
-          - sensor.tv_leds_interval
-          - sensor.tv_leds_interval_2
-          - sensor.tv_leds_power
-          - sensor.tv_leds_power_2
-          - sensor.tv_leds_previous_reading
-          - sensor.tv_leds_previous_reading_2
-      - type: entities
-        title: ZWave Devices
-        show_header_toggle: true
-        entities:
-          - zwave.aeotec_zw090_zstick_gen5_us
-          - zwave.back_floodlights
-          - zwave.back_porch_light
-          - zwave.bar_outlet
-          - zwave.3d_printer
-          - zwave.dragon_tech_unknown_type4447_id3031
-          - zwave.front_floodlight
-          - zwave.garage_entry_lt
-          - zwave.kitchen_bar_lt
-          - zwave.kitchen_glass_lt
-          - zwave.living_room_ligh
-          - zwave.living_room_fan
-          - zwave.loft_area_light
-          - zwave.mbr_fan
-          - zwave.mbr_light
-          - zwave.nook_light
-          - zwave.office_leds
-          - zwave.office_light
-          - zwave.primary_garage_l
-          - zwave.stairway_light
-          - zwave.tv_leds
-      - type: entities
-        title: Virtual Sensors
-        show_header_toggle: true
-        entities:
-          - device_tracker.google_maps_112239156454675366879
-          - sensor.christmas_season
