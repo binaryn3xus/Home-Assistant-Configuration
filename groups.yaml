@@ -73,6 +73,12 @@ cameras:
     - camera.master_bedroom_camera
     - camera.living_room_camera
 
+christmas_lights:
+  name: Christmas Lights
+  entities:
+    - switch.front_porch_outlet
+    - switch.ext_lr_outlet_switch
+
 amcrest_meta:
   name: Amcrest Meta Data
   entities:

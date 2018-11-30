@@ -139,7 +139,7 @@ views:
           - switch.mbr_fan_switch
           - switch.office_leds
           - switch.tv_leds_switch
-          - switch.ge_12721_lighting_control_duplex_receptacle_switch
+          - switch.front_porch_outlet
       - type: entities
         title: All Kitchen Lights
         show_header_toggle: true

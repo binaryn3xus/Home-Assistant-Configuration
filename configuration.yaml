@@ -41,6 +41,13 @@ emulated_hue:
 ecobee:
   api_key: !secret ecobee_api_key
 
+# Evovacs does not seem to be working right now
+#ecovacs:
+#  username: !secret ecovacs_username
+#  password: !secret ecovacs_password
+#  country: us
+#  continent: na
+
 octoprint:
   - host: !secret octoprint_host_ip
     api_key: !secret octoprint_api_key

@@ -115,6 +115,10 @@ sensor.creality_cr10s_s4_actual_bed_temp:
 sensor.creality_cr10s_s4_target_bed_temp:
   friendly_name: Creality CR10S S4 Target Bed Temp
   emulated_hue_hidden: true
+sensor.christmas_season:
+  friendly_name: Christmas Season
+  emulated_hue_hidden: true
+  icon: mdi:pine-tree
 
 ####Customize Media Players####
 
