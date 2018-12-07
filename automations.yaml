@@ -60,3 +60,16 @@
     from: 'Printing from SD'
   action:
     service: script.alert_3d_print_finished
+
+- id: Turn_Off_Christmas_Lights
+  alias: Turn off Christmas lights
+  trigger:
+    platform: time
+    at: '22:00:00'
+  condition:
+    - condition: state
+      entity_id: 'sensor.christmas_season'
+      state: 'true'
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.christmas_lights
