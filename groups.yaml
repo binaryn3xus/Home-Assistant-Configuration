@@ -1,46 +1,8 @@
-#### Views
-lights_switches_view:
-  name: Lights / Switches
-  icon: mdi:lightbulb
-  view: true
-  entities:
-    - group.all_lights
-    - group.all_switches
-    - group.kitchen_lights
-
-automation_scripts_view:
-  name: Automation / Scripts
-  icon: mdi:creation
-  view: true
-  entities:
-    - group.all_automations
-    - group.all_scripts
-
-alarm_cameras_view:
-  name: Alarm / Cameras
-  icon: mdi:cctv
-  view: true
-  entities:
-    - group.cameras
-    - group.abode_alarm
-    - group.ring
-    - group.amcrest_meta
-
-misc_view:
-  name: Misc
-  icon: mdi:buffer
-  view: true
-  entities:
-    - group.power_meters
-    - group.zwave_devices
-    - group.virtual_sensors
-
-#### GROUPS
 
 3d_creality_cr-10:
   name: Creality CR-10S S4
   entities:
-    - switch.3d_printer_switch
+    - switch.creality_cr10s_s4_switch
     - camera.3d_printer_camera
 
 abode_alarm:
@@ -85,9 +47,7 @@ amcrest_meta:
     - sensor.master_bedroom_camera_motion_detected
     - sensor.master_bedroom_camera_sd_used
     - sensor.3d_printer_camera_motion_detected
-    - sensor.3d_printer_camera_sd_used
     - sensor.living_room_camera_motion_detected
-    - sensor.living_room_camera_sd_used
 
 ring:
   name: Ring Doorbell Sensors
@@ -143,7 +103,6 @@ kitchen_lights:
 power_meters:
   name: Power Recorders
   entities:
-    - sensor.duke_energy_319472558
     - sensor.creality_cr10s_s4_energy
     - sensor.creality_cr10s_s4_exporting
     - sensor.creality_cr10s_s4_interval
@@ -208,21 +167,21 @@ zwave_devices:
     - zwave.back_floodlights
     - zwave.back_porch_light
     - zwave.bar_outlet
-    - zwave.3d_printer
     - zwave.dragon_tech_unknown_type4447_id3031
-    - zwave.ex_lr_outlet
+    - zwave.ext_lr_outlet
     - zwave.front_floodlight
-    - zwave.front_porch_light
+    - zwave.front_porch_ligh
     - zwave.garage_entry_lt
     - zwave.kitchen_bar_lt
     - zwave.kitchen_glass_lt
-    - zwave.kitchen_sink_li
+    - zwave.kitchen_sink_lt
     - zwave.living_room_ligh
     - zwave.living_room_fan
     - zwave.loft_area_light
     - zwave.mbr_fan
     - zwave.mbr_light
     - zwave.nook_light
+    - zwave.creality_cr10s_s4
     - zwave.ender_3
     - zwave.office_light
     - zwave.primary_garage_l

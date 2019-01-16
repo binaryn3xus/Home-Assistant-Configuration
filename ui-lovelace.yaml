@@ -73,6 +73,16 @@ views:
           show_header_toggle: true
           entities:
             - switch.ender_3_switch
+            - binary_sensor.creality_ender_3_printing
+            - binary_sensor.creality_ender_3_printing_error
+            - sensor.creality_ender_3_job_percentage
+            - sensor.creality_ender_3_target_bed_temp
+            - sensor.creality_ender_3_actual_bed_temp
+            - sensor.creality_ender_3_target_tool0_temp
+            - sensor.creality_ender_3_actual_tool0_temp
+            - sensor.creality_ender_3_current_state
+            - sensor.creality_ender_3_time_elapsed
+            - sensor.creality_ender_3_time_remaining
       - type: entities
         title: Virtual Sensors
         show_header_toggle: true
@@ -101,7 +111,17 @@ views:
         title: Ender 3
         show_header_toggle: true
         entities:
-          - switch.ender_3_switch          
+          - switch.ender_3_switch
+          - binary_sensor.creality_ender_3_printing
+          - binary_sensor.creality_ender_3_printing_error
+          - sensor.creality_ender_3_job_percentage
+          - sensor.creality_ender_3_target_bed_temp
+          - sensor.creality_ender_3_actual_bed_temp
+          - sensor.creality_ender_3_target_tool0_temp
+          - sensor.creality_ender_3_actual_tool0_temp
+          - sensor.creality_ender_3_current_state
+          - sensor.creality_ender_3_time_elapsed
+          - sensor.creality_ender_3_time_remaining        
   - title: Lights / Switches
     icon: mdi:lightbulb
     cards:
@@ -160,6 +180,8 @@ views:
           - automation.joshua_morning_work_departure
           - automation.sunrise_procedure
           - automation.sunset_procedure
+          - automation.cr10s_s4_print_finished_alert
+          - automation.ender_3_print_finished_alert
       - type: entities
         title: All Scripts
         show_header_toggle: true
@@ -171,6 +193,8 @@ views:
           - script.sunrise_procedure
           - script.sunset_procedure
           - script.update_notification
+          - script.cr10s_s4_print_finished_alert
+          - script.ender_3_print_finished_alert
   - title: Cameras
     icon: mdi:cctv
     cards:

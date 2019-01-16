@@ -12,6 +12,9 @@ homeassistant:
 
 hassio:
 frontend:
+  themes: !include themes.yaml
+lovelace:
+  mode: yaml
 config:
 updater:
 discovery:
@@ -41,17 +44,25 @@ emulated_hue:
 ecobee:
   api_key: !secret ecobee_api_key
 
-# Evovacs does not seem to be working right now
-#ecovacs:
-#  username: !secret ecovacs_username
-#  password: !secret ecovacs_password
-#  country: us
-#  continent: na
+panel_iframe:
+  cr10s4:
+    title: 'CR-10S S4'
+    url: !secret octoprint_cr10s_s4_url
+    icon: mdi:printer-3d
+  ender3:
+    title: 'Ender 3'
+    url: !secret octoprint_ender3_url
+    icon: mdi:printer-3d
 
 octoprint:
-  - host: !secret octoprint_host_ip
-    api_key: !secret octoprint_api_key
+  - host: !secret octoprint_cr10s_s4_host_ip
+    api_key: !secret octoprint_cr10s_s4_api_key
     name: Creality CR-10S S4
+    bed: true
+    number_of_tools: 1
+  - host: !secret octoprint_ender3_host_ip
+    api_key: !secret octoprint_ender3_api_key
+    name: Creality Ender 3
     bed: true
     number_of_tools: 1
 

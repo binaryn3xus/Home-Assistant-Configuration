@@ -1,6 +1,0 @@
-alert_3d_print_finished:
-  sequence:
-    - service: notify.JoshuaAndroidPhone
-      data:
-        title: "3D Print Finished"
-        message: "Your 3D print is finished! Bet it looks great!"

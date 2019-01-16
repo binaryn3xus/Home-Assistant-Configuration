@@ -1,0 +1,6 @@
+cr10s_s4_print_finished_alert:
+  sequence:
+    - service: notify.JoshuaAndroidPhone
+      data:
+        title: "CR10S S4 Print Finished"
+        message: "Your 3D print is finished!"
