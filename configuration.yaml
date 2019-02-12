@@ -44,16 +44,6 @@ emulated_hue:
 ecobee:
   api_key: !secret ecobee_api_key
 
-panel_iframe:
-  cr10s4:
-    title: 'CR-10S S4'
-    url: !secret octoprint_cr10s_s4_url
-    icon: mdi:printer-3d
-  ender3:
-    title: 'Ender 3'
-    url: !secret octoprint_ender3_url
-    icon: mdi:printer-3d
-
 octoprint:
   - host: !secret octoprint_cr10s_s4_host_ip
     api_key: !secret octoprint_cr10s_s4_api_key

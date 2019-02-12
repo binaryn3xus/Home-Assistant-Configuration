@@ -147,10 +147,10 @@ time_values:
   name: Date & Time Values
   entities:
     - sensor.date
-    - sensor.date__time
+    - sensor.date_time
     - sensor.internet_time
     - sensor.time
-    - sensor.time__date
+    - sensor.time_date
     - sensor.time_utc
 
 virtual_sensors:

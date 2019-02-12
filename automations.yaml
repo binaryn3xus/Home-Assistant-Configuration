@@ -2,17 +2,17 @@
   alias: "Joshua Morning Work Departure"
   trigger:
     platform: time
-    hours: 5
-    minutes: 40
-    seconds: 0
+    at: '05:40:00'
   condition:
-    condition: time
-    weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
+  - condition: and
+    conditions: 
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
   action:
     service: script.morning_work_departure
 

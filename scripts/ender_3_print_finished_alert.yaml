@@ -1,6 +1,6 @@
 ender_3_print_finished_alert:
   sequence:
-    - service: notify.JoshuaAndroidPhone
+    - service: notify.joshua_android_phone
       data:
         title: "Ender 3 Print Finished"
         message: "Your 3D print is finished!"
