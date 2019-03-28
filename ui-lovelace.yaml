@@ -13,12 +13,6 @@ views:
           entities:
             - sun.sun
             - sensor.moon
-            - sensor.pws_alerts
-            - sensor.pws_weather
-            - sensor.pws_temp_f
-            - sensor.pws_precip_today_in
-            - sensor.pws_relative_humidity
-            - sensor.pws_visibility_mi
       - type: vertical-stack
         cards:
         - type: picture-glance

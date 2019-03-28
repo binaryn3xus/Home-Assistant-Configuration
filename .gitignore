@@ -16,7 +16,7 @@ __pycache__
 *.sqlite
 *.xml
 *.backup
-*.cookies
+*.cookies*
 life360.sh
 .ip_authenticated.yaml
 .config_entries.json
