@@ -4,4 +4,3 @@ username: !secret amcrest_username
 password: !secret amcrest_password
 sensors:
   - motion_detector
-  - sdcard

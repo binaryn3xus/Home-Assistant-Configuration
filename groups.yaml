@@ -45,7 +45,6 @@ amcrest_meta:
   name: Amcrest Meta Data
   entities:
     - sensor.master_bedroom_camera_motion_detected
-    - sensor.master_bedroom_camera_sd_used
     - sensor.3d_printer_camera_motion_detected
     - sensor.living_room_camera_motion_detected
 

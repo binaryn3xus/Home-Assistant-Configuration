@@ -9,6 +9,7 @@ homeassistant:
   auth_providers:
    - type: homeassistant
    - type: legacy_api_password
+     api_password: !secret http_password
 
 hassio:
 frontend:
@@ -20,9 +21,9 @@ updater:
 discovery:
 logbook:
 sun:
+system_health:
 
 http:
-  api_password: !secret http_password
   base_url: !secret http_base_url
   ssl_certificate: /ssl/fullchain.pem  
   ssl_key: /ssl/privkey.pem  

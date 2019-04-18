@@ -20,13 +20,11 @@ views:
           entities: 
             - light.mbr_light_level
             - sensor.master_bedroom_camera_motion_detected
-            - sensor.master_bedroom_camera_sd_used
           camera_image: camera.master_bedroom_camera
         - type: picture-glance
           title: 3D Printer Camera
           entities:
             - sensor.3d_printer_camera_motion_detected
-            - sensor.3d_printer_camera_sd_used
           camera_image: camera.3d_printer_camera
         - type: picture-glance
           title: Living Room Camera
@@ -35,7 +33,6 @@ views:
             - light.nook_light_level
             - switch.living_room_fan_switch
             - sensor.living_room_camera_motion_detected
-            - sensor.living_room_camera_sd_used
           camera_image: camera.living_room_camera
       - type: conditional
         conditions:
@@ -47,16 +44,16 @@ views:
           show_header_toggle: true
           entities:
             - switch.creality_cr10s_s4_switch
-            - binary_sensor.creality_cr10s_s4_printing
-            - binary_sensor.creality_cr10s_s4_printing_error
-            - sensor.creality_cr10s_s4_job_percentage
-            - sensor.creality_cr10s_s4_target_bed_temp
-            - sensor.creality_cr10s_s4_actual_bed_temp
-            - sensor.creality_cr10s_s4_target_tool0_temp
-            - sensor.creality_cr10s_s4_actual_tool0_temp
-            - sensor.creality_cr10s_s4_current_state
-            - sensor.creality_cr10s_s4_time_elapsed
-            - sensor.creality_cr10s_s4_time_remaining
+            - binary_sensor.creality_cr_10s_s4_printing
+            - binary_sensor.creality_cr_10s_s4_printing_error
+            - sensor.creality_cr_10s_s4_job_percentage
+            - sensor.creality_cr_10s_s4_target_bed_temp
+            - sensor.creality_cr_10s_s4_actual_bed_temp
+            - sensor.creality_cr_10s_s4_target_tool0_temp
+            - sensor.creality_cr_10s_s4_actual_tool0_temp
+            - sensor.creality_cr_10s_s4_current_state
+            - sensor.creality_cr_10s_s4_time_elapsed
+            - sensor.creality_cr_10s_s4_time_remaining
       - type: conditional
         conditions:
           - entity: switch.ender_3_switch
@@ -91,16 +88,16 @@ views:
         show_header_toggle: true
         entities:
           - switch.creality_cr10s_s4_switch
-          - binary_sensor.creality_cr10s_s4_printing
-          - binary_sensor.creality_cr10s_s4_printing_error
-          - sensor.creality_cr10s_s4_job_percentage
-          - sensor.creality_cr10s_s4_target_bed_temp
-          - sensor.creality_cr10s_s4_actual_bed_temp
-          - sensor.creality_cr10s_s4_target_tool0_temp
-          - sensor.creality_cr10s_s4_actual_tool0_temp
-          - sensor.creality_cr10s_s4_current_state
-          - sensor.creality_cr10s_s4_time_elapsed
-          - sensor.creality_cr10s_s4_time_remaining
+          - binary_sensor.creality_cr_10s_s4_printing
+          - binary_sensor.creality_cr_10s_s4_printing_error
+          - sensor.creality_cr_10s_s4_job_percentage
+          - sensor.creality_cr_10s_s4_target_bed_temp
+          - sensor.creality_cr_10s_s4_actual_bed_temp
+          - sensor.creality_cr_10s_s4_target_tool0_temp
+          - sensor.creality_cr_10s_s4_actual_tool0_temp
+          - sensor.creality_cr_10s_s4_current_state
+          - sensor.creality_cr_10s_s4_time_elapsed
+          - sensor.creality_cr_10s_s4_time_remaining
       - type: entities
         title: Ender 3
         show_header_toggle: true
@@ -197,13 +194,11 @@ views:
         entities: 
           - light.mbr_light_level
           - sensor.master_bedroom_camera_motion_detected
-          - sensor.master_bedroom_camera_sd_used
         camera_image: camera.master_bedroom_camera
       - type: picture-glance
         title: 3D Printer Camera
         entities:
           - sensor.3d_printer_camera_motion_detected
-          - sensor.3d_printer_camera_sd_used
         camera_image: camera.3d_printer_camera
       - type: picture-glance
         title: Living Room Camera
@@ -212,5 +207,4 @@ views:
           - light.nook_light_level
           - switch.living_room_fan_switch
           - sensor.living_room_camera_motion_detected
-          - sensor.living_room_camera_sd_used
         camera_image: camera.living_room_camera
