@@ -16,10 +16,6 @@ morning_work_departure:
     - service: light.turn_on
       data:
         entity_id: light.second_garage_li_level
-    # Turn on master bedroom light
-    - service: light.turn_on
-      data:
-        entity_id: light.mbr_light_level
     # Wait 30 minutes
     - delay: 00:30:00
     # Turn off kitchen glass light
@@ -38,7 +34,3 @@ morning_work_departure:
     - service: light.turn_off
       data:
         entity_id: light.second_garage_li_level
-    # Turn off master bedroom light
-    - service: light.turn_off
-      data:
-        entity_id: light.mbr_light_level
