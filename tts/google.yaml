@@ -1,4 +1,5 @@
-platform: google
+platform: google_translate
+language: en
 cache: true
 cache_dir: /tmp/tts
 time_memory: 300
