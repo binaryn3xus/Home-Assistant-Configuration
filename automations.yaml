@@ -1,5 +1,7 @@
 - id: Joshua_Morning_Departure
   alias: "Joshua Morning Work Departure"
+  hide_entity: false
+  initial_state: true
   trigger:
     platform: time
     at: '05:40:00'
@@ -18,6 +20,8 @@
 
 - id: Sunrise_Procedure
   alias: "Sunrise Procedure"
+  hide_entity: false
+  initial_state: true
   trigger:
     platform: sun
     event: sunrise
@@ -27,6 +31,8 @@
 
 - id: Sunset_Procedure
   alias: "Sunset Procedure"
+  hide_entity: false
+  initial_state: true
   trigger:
     platform: sun
     event: sunset
@@ -36,6 +42,8 @@
 
 - id: Home_Assistant_Update_Notification
   alias: Home Assistant Update Notification
+  hide_entity: false
+  initial_state: true
   trigger:
     platform: state
     entity_id: updater.updater
@@ -44,6 +52,8 @@
 
 - id: Bedroom_Motion_Detection_Alert
   alias: Bedroom Motion Detection Alert
+  hide_entity: false
+  initial_state: true
   trigger:
     platform: state
     entity_id: sensor.master_bedroom_camera_motion_detected
@@ -54,6 +64,8 @@
 
 - id: CR10S_S4_Print_Finished_Alert
   alias: CR10S S4 Print Finished Alert
+  hide_entity: false
+  initial_state: true
   trigger:
     platform: state
     entity_id: sensor.creality_cr10s_s4_current_state
@@ -63,6 +75,8 @@
 
 - id: Ender_3_Print_Finished_Alert
   alias: Ender 3 Print Finished Alert
+  hide_entity: false
+  initial_state: true
   trigger:
     platform: state
     entity_id: sensor.creality_ender_3_current_state
@@ -72,6 +86,8 @@
 
 - id: Turn_Off_Christmas_Lights
   alias: Turn off Christmas lights
+  hide_entity: false
+  initial_state: true
   trigger:
     platform: time
     at: '22:00:00'
