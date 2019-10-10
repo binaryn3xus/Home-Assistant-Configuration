@@ -2,5 +2,3 @@ host: !secret ip_address_living_room_camera
 name: Living Room Camera
 username: !secret amcrest_username
 password: !secret amcrest_password
-sensors:
-  - motion_detector

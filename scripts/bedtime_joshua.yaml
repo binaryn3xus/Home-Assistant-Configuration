@@ -1,9 +1,13 @@
-joshua_bedtime:
+bedtime_joshua:
   sequence:
+    # Turn off input boolean
+    - service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.goodnight_mode
     # Turn off TV LEDs
     - service: switch.turn_off
       data:
-        entity_id: switch.tv_leds_switch
+        entity_id: switch.aeon_labs_dsc06106_smart_energy_switch_switch
     # Turn off Office LEDs
     - service: switch.turn_off
       data:
@@ -31,7 +35,7 @@ joshua_bedtime:
     # Turn off under cabinet lights
     - service: switch.turn_off
       data:
-        entity_id: switch.dragon_tech_unknown_type4447_id3031_switch
+        entity_id: switch.dragon_tech_unknown_type_4447_id_3031_switch
     # Arm Abode System
     - service: alarm_control_panel.alarm_arm_home
       data:

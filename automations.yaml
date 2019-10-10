@@ -1,3 +1,15 @@
+- id: Set_Theme_OnStart
+  alias: 'Set theme at startup'
+  hide_entity: false
+  initial_state: true
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    service: frontend.set_theme
+    data:
+      name: midnight
+
 - id: Joshua_Morning_Departure
   alias: "Joshua Morning Work Departure"
   hide_entity: false
@@ -39,6 +51,17 @@
     offset: "-01:00:00"
   action:
     service: script.sunset_procedure
+
+- id: Goodnight_Routine
+  alias: "Goodnight Routine"
+  hide_entity: false
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: input_boolean.goodnight_mode
+    to: 'on'
+  action:
+    service: script.bedtime_joshua
 
 - id: Home_Assistant_Update_Notification
   alias: Home Assistant Update Notification

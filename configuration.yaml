@@ -11,7 +11,6 @@ homeassistant:
    - type: legacy_api_password
      api_password: !secret http_password
 
-hassio:
 frontend:
   themes: !include themes.yaml
 lovelace:
@@ -25,11 +24,16 @@ system_health:
 
 http:
   base_url: !secret http_base_url
-  ssl_certificate: /ssl/fullchain.pem  
-  ssl_key: /ssl/privkey.pem  
+# TODO Setup Let's Encrypt
+#  ssl_certificate: /ssl/fullchain.pem  
+#  ssl_key: /ssl/privkey.pem
+
+recorder:
+  purge_keep_days: 10
+  db_url: !secret mssql_db_url
 
 mqtt:
-  broker: core-mosquitto
+  broker: !secret mqtt_ip_address
   username: !secret mqtt_username
   password: !secret mqtt_password
 
@@ -41,21 +45,27 @@ emulated_hue:
   exposed_domains:
     - light
     - switch
+    - input_boolean
+  entities:
+    input_boolean.goodnight_mode:
+      name: "Goodnight Mode"
+      hidden: false
 
 ecobee:
   api_key: !secret ecobee_api_key
 
-octoprint:
-  - host: !secret octoprint_cr10s_s4_host_ip
-    api_key: !secret octoprint_cr10s_s4_api_key
-    name: Creality CR-10S S4
-    bed: true
-    number_of_tools: 1
-  - host: !secret octoprint_ender3_host_ip
-    api_key: !secret octoprint_ender3_api_key
-    name: Creality Ender 3
-    bed: true
-    number_of_tools: 1
+# Experiencing networking or Octoprint image issues - Disabling for now
+#octoprint:
+#  - host: !secret octoprint_cr10s_s4_host_ip
+#    api_key: !secret octoprint_cr10s_s4_api_key
+#    name: Creality CR-10S S4
+#    bed: true
+#    number_of_tools: 1
+# - host: !secret octoprint_ender3_host_ip
+#    api_key: !secret octoprint_ender3_api_key
+#    name: Creality Ender 3
+#    bed: true
+#    number_of_tools: 1
 
 abode:
   username: !secret abode_username
@@ -73,9 +83,18 @@ zwave:
   polling_interval: 10000
   network_key: !secret zwave_network_key
 
-ring:
-  username: !secret ring_username
-  password: !secret ring_password
+input_boolean:
+  goodnight_mode:
+    name: Goodnight Mode
+    initial: off
+    icon: mdi:weather-night
+
+plex:
+  host: !secret plex_ip
+  port: 32400
+  token: !secret plex_token
+  ssl: false
+  verify_ssl: false
 
 weather:
   - platform: darksky
@@ -87,7 +106,7 @@ dialogflow:
 intent_script: !include intent_script.yaml
 automation: !include automations.yaml
 group: !include groups.yaml
-device_tracker: !include_dir_list device-trackers/
+#device_tracker: !include_dir_list device-trackers/
 notify: !include_dir_list notifications/
 script: !include_dir_merge_named scripts/
 sensor: !include_dir_list sensors/

@@ -20,7 +20,7 @@ GoingToBed:
   speech:
     text: Okay! Goodnight!
   action:
-    service: script.joshua_bedtime
+    service: script.bedtime_joshua
 SunriseProcedure:
   speech:
     text: Good morning! Have a great day!

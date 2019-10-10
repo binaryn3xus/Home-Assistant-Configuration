@@ -3,7 +3,7 @@
 light.mbr_outlet_level:
   friendly_name: Master Bedroom Outlet
   emulated_hue_hidden: false
-light.front_floodlight_level:
+light.unknown_node_13_level:
   friendly_name: Front Floodlights
   emulated_hue_hidden: false
   icon: mdi:spotlight-beam
@@ -56,7 +56,7 @@ light.stairway_light_level:
 
 ####Customize Switches####
 
-switch.tv_leds_switch:
+switch.aeon_labs_dsc06106_smart_energy_switch_switch:
   friendly_name: TV LEDs
   emulated_hue_hidden: false
   icon: mdi:led-outline
@@ -76,7 +76,7 @@ switch.ge_12721_lighting_control_duplex_receptacle_switch:
   friendly_name: Front Porch Outlet
   emulated_hue_hidden: false
   icon: mdi:power-socket-us
-switch.dragon_tech_unknown_type4447_id3031_switch:
+switch.dragon_tech_unknown_type_4447_id_3031_switch:
   friendly_name: Under Cabinet Lights
   emulated_hue_hidden: false
   icon: mdi:power-socket-us
@@ -96,8 +96,12 @@ switch.garage_motion_22:
   friendly_name: Camera Motion Sensor
   emulated_hue_hidden: true
   icon: mdi:alarm-light
-switch.creality_cr10s_s4:
+switch.aeon_labs_dsc06106_smart_energy_switch_switch_3:
   friendly_name: Creality CR10 S4
+  emulated_hue_hidden: true
+  icon: mdi:printer-3d
+switch.aeon_labs_dsc06106_smart_energy_switch_switch_2:
+  friendly_name: Ender 3
   emulated_hue_hidden: true
   icon: mdi:printer-3d
 

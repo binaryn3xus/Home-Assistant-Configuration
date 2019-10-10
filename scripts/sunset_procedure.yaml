@@ -3,7 +3,7 @@ sunset_procedure:
     # Turn on TV LEDs
     - service: switch.turn_on
       data:
-        entity_id: switch.tv_leds_switch
+        entity_id: switch.aeon_labs_dsc06106_smart_energy_switch_switch
     # Turn on Office LEDs
     - service: switch.turn_on
       data:
@@ -19,7 +19,7 @@ sunset_procedure:
     # Turn on under cabinet lights
     - service: switch.turn_on
       data:
-        entity_id: switch.dragon_tech_unknown_type4447_id3031_switch
+        entity_id: switch.dragon_tech_unknown_type_4447_id_3031_switch
     # Turn on Christmas lights
     - service_template: >
             {% if is_state('sensor.christmas_season', 'true') %}
