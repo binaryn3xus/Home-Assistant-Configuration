@@ -64,6 +64,10 @@ switch.office_leds:
   friendly_name: Office LEDs
   emulated_hue_hidden: false
   icon: mdi:led-outline
+switch.coffee_table_lamp:
+  friendly_name: Coffee Table Lamp
+  emulated_hue_hidden: false
+  icon: mdi:lamp
 switch.bar_outlet_switch:
   friendly_name: Bar Outlet
   emulated_hue_hidden: false

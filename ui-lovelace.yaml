@@ -16,6 +16,13 @@ views:
           entities:
             - sun.sun
             - sensor.moon
+        - type: entities
+          title: Common
+          show_header_toggle: false
+          entities:
+            - script.bedtime_joshua
+            - script.sunrise_procedure
+            - script.sunset_procedure
       - type: vertical-stack
         cards:
         - type: picture-glance
@@ -148,7 +155,9 @@ views:
           - switch.living_room_fan_switch
           - switch.mbr_fan_switch
           - switch.office_leds
+          - switch.coffee_table_lamp
           - switch.front_porch_outl_switch
+          - cover.motorized_blinds
       - type: entities
         title: All Kitchen Lights
         show_header_toggle: true
