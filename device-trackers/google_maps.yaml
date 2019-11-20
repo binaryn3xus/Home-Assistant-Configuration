@@ -1,3 +1,0 @@
-platform: google_maps
-username: !secret second_google_account_email
-password: !secret second_google_account_password

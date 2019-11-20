@@ -1,4 +1,0 @@
-host: !secret ip_address_3d_printer_camera
-name: 3D Printer Camera
-username: !secret amcrest_username
-password: !secret amcrest_password

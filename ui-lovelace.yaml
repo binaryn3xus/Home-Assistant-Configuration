@@ -11,11 +11,13 @@ views:
         - type: weather-forecast
           entity: weather.dark_sky
         - type: entities
-          title: Weather Info
-          show_header_toggle: true
+          title: Status Info
+          show_header_toggle: false
           entities:
             - sun.sun
             - sensor.moon
+            - sensor.christmas_season
+            - input_boolean.goodnight_mode
         - type: entities
           title: Common
           show_header_toggle: false
@@ -23,25 +25,6 @@ views:
             - script.bedtime_joshua
             - script.sunrise_procedure
             - script.sunset_procedure
-      - type: vertical-stack
-        cards:
-        - type: picture-glance
-          title: Master Bedroom Camera
-          entities: 
-            - light.mbr_light_level
-          camera_image: camera.master_bedroom_camera
-        - type: picture-glance
-          title: 3D Printer Camera
-          entities:
-            - switch.aeon_labs_dsc06106_smart_energy_switch_switch_3
-          camera_image: camera.3d_printer_camera
-        - type: picture-glance
-          title: Living Room Camera
-          entities: 
-            - light.living_room_ligh_level
-            - light.nook_light_level
-            - switch.living_room_fan_switch
-          camera_image: camera.living_room_camera
       - type: conditional
         conditions:
           - entity: switch.creality_cr10s_s4_switch
@@ -81,12 +64,6 @@ views:
             - sensor.creality_ender_3_current_state
             - sensor.creality_ender_3_time_elapsed
             - sensor.creality_ender_3_time_remaining
-      - type: entities
-        title: Virtual Sensors
-        show_header_toggle: true
-        entities:
-          - sensor.christmas_season
-          - input_boolean.goodnight_mode
 #  - title: 3D Printers
 #    icon: mdi:printer-3d
 #    cards:
@@ -193,26 +170,6 @@ views:
           - script.update_notification
           - script.cr10s_s4_print_finished_alert
           - script.ender_3_print_finished_alert
-  - title: Cameras
-    icon: mdi:cctv
-    cards:
-      - type: picture-glance
-        title: Master Bedroom Camera
-        entities: 
-          - light.mbr_light_level
-        camera_image: camera.master_bedroom_camera
-      - type: picture-glance
-        title: 3D Printer Camera
-        entities:
-          - switch.aeon_labs_dsc06106_smart_energy_switch_switch_3
-        camera_image: camera.3d_printer_camera
-      - type: picture-glance
-        title: Living Room Camera
-        entities: 
-          - light.living_room_ligh_level
-          - light.nook_light_level
-          - switch.living_room_fan_switch
-        camera_image: camera.living_room_camera
   - title: Plex
     icon: mdi:plex
     cards:
