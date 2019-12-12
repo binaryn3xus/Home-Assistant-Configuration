@@ -1,0 +1,10 @@
+id: Sunset_Procedure
+alias: "Sunset Procedure"
+hide_entity: false
+initial_state: true
+trigger:
+  platform: sun
+  event: sunset
+  offset: "-01:00:00"
+action:
+  service: script.sunset_procedure
