@@ -8,7 +8,7 @@
 abode_alarm:
   name: Abode Alarm
   entities:
-    - alarm_control_panel.abode_alarm_system
+    - alarm_control_panel.abode_alarm
     - lock.front_door_lock
     - binary_sensor.back_door
     - binary_sensor.front_door
@@ -38,7 +38,7 @@ cameras:
 christmas_lights:
   name: Christmas Lights
   entities:
-    - switch.front_porch_outlet
+    - switch.front_porch_outl_switch
     - switch.ext_lr_outlet_switch
 
 amcrest_meta:

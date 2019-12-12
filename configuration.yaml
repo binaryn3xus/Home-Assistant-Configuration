@@ -37,6 +37,12 @@ mqtt:
   username: !secret mqtt_username
   password: !secret mqtt_password
 
+device_tracker:
+  - platform: nmap_tracker
+    hosts: 192.168.1.0/24
+    exclude:
+      - !secret ha_ip_address
+
 #Emulated Hue (For Echo Support)
 #emulated_hue:
 #  expose_by_default: false

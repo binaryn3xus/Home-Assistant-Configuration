@@ -40,4 +40,4 @@ bedtime_joshua:
     - service: alarm_control_panel.alarm_arm_home
       data:
         entity_id: 
-          - alarm_control_panel.abode_alarm_system
+          - alarm_control_panel.abode_alarm

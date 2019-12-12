@@ -25,6 +25,14 @@ views:
             - script.bedtime_joshua
             - script.sunrise_procedure
             - script.sunset_procedure
+      - type: vertical-stack
+        cards:
+          - type: thermostat
+            name: Main Floor
+            entity: climate.main_floor
+          - type: thermostat
+            name: Upstairs
+            entity: climate.upstairs
       - type: conditional
         conditions:
           - entity: switch.creality_cr10s_s4_switch
@@ -170,6 +178,7 @@ views:
           - script.update_notification
           - script.cr10s_s4_print_finished_alert
           - script.ender_3_print_finished_alert
+          - script.turn_off_christmas_lights
   - title: Plex
     icon: mdi:plex
     cards:
@@ -180,3 +189,13 @@ views:
         filter:
           include:
             - entity_id: media_player.plex*
+  - title: Plex
+    icon: mdi:network
+    cards:
+      - type: "custom:monster-card"
+        card:
+          type: entities
+          show_header_toggle: false
+        filter:
+          include:
+            - entity_id: device_tracker*
