@@ -8,7 +8,7 @@
 abode_alarm:
   name: Abode Alarm
   entities:
-    - alarm_control_panel.abode_alarm_system
+    - alarm_control_panel.abode_alarm
     - lock.front_door_lock
     - binary_sensor.back_door
     - binary_sensor.front_door
@@ -38,7 +38,7 @@ cameras:
 christmas_lights:
   name: Christmas Lights
   entities:
-    - switch.front_porch_outlet
+    - switch.front_porch_outl_switch
     - switch.ext_lr_outlet_switch
 
 amcrest_meta:
@@ -47,17 +47,6 @@ amcrest_meta:
     - sensor.master_bedroom_camera_motion_detected
     - sensor.3d_printer_camera_motion_detected
     - sensor.living_room_camera_motion_detected
-
-ring:
-  name: Ring Doorbell Sensors
-  entities:
-    - sensor.ring_front_door_last_activity
-    - sensor.ring_front_door_last_ding
-    - sensor.ring_front_door_last_motion
-    - sensor.ring_front_door_volume
-    - sensor.ring_front_door_battery
-    - sensor.ring_front_door_wifi_signal_category
-    - sensor.ring_front_door_wifi_signal_strength
 
 weather_data:
   name: Weather Info

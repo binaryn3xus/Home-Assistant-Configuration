@@ -1,4 +1,7 @@
 title: Joshua's Home
+resources:
+  - url: /local/monster-card.js
+    type: js
 views:
   - title: Home
     icon: mdi:home-assistant
@@ -8,32 +11,28 @@ views:
         - type: weather-forecast
           entity: weather.dark_sky
         - type: entities
-          title: Weather Info
-          show_header_toggle: true
+          title: Status Info
+          show_header_toggle: false
           entities:
             - sun.sun
             - sensor.moon
+            - sensor.christmas_season
+            - input_boolean.goodnight_mode
+        - type: entities
+          title: Common
+          show_header_toggle: false
+          entities:
+            - script.bedtime_joshua
+            - script.sunrise_procedure
+            - script.sunset_procedure
       - type: vertical-stack
         cards:
-        - type: picture-glance
-          title: Master Bedroom Camera
-          entities: 
-            - light.mbr_light_level
-            - sensor.master_bedroom_camera_motion_detected
-          camera_image: camera.master_bedroom_camera
-        - type: picture-glance
-          title: 3D Printer Camera
-          entities:
-            - sensor.3d_printer_camera_motion_detected
-          camera_image: camera.3d_printer_camera
-        - type: picture-glance
-          title: Living Room Camera
-          entities: 
-            - light.living_room_ligh_level
-            - light.nook_light_level
-            - switch.living_room_fan_switch
-            - sensor.living_room_camera_motion_detected
-          camera_image: camera.living_room_camera
+          - type: thermostat
+            name: Main Floor
+            entity: climate.main_floor
+          - type: thermostat
+            name: Upstairs
+            entity: climate.upstairs
       - type: conditional
         conditions:
           - entity: switch.creality_cr10s_s4_switch
@@ -43,7 +42,6 @@ views:
           title: Creality CR10S S4
           show_header_toggle: true
           entities:
-            - switch.creality_cr10s_s4_switch
             - binary_sensor.creality_cr_10s_s4_printing
             - binary_sensor.creality_cr_10s_s4_printing_error
             - sensor.creality_cr_10s_s4_job_percentage
@@ -74,12 +72,6 @@ views:
             - sensor.creality_ender_3_current_state
             - sensor.creality_ender_3_time_elapsed
             - sensor.creality_ender_3_time_remaining
-      - type: entities
-        title: Virtual Sensors
-        show_header_toggle: true
-        entities:
-          - device_tracker.google_maps_112239156454675366879
-          - sensor.christmas_season
   - title: 3D Printers
     icon: mdi:printer-3d
     cards:
@@ -87,7 +79,7 @@ views:
         title: Creality CR10S S4
         show_header_toggle: true
         entities:
-          - switch.creality_cr10s_s4_switch
+          - switch.aeon_labs_dsc06106_smart_energy_switch_switch_3
           - binary_sensor.creality_cr_10s_s4_printing
           - binary_sensor.creality_cr_10s_s4_printing_error
           - sensor.creality_cr_10s_s4_job_percentage
@@ -102,7 +94,7 @@ views:
         title: Ender 3
         show_header_toggle: true
         entities:
-          - switch.ender_3_switch
+          - switch.aeon_labs_dsc06106_smart_energy_switch_switch_2
           - binary_sensor.creality_ender_3_printing
           - binary_sensor.creality_ender_3_printing_error
           - sensor.creality_ender_3_job_percentage
@@ -122,7 +114,7 @@ views:
         entities:
           - light.back_floodlights_level
           - light.back_porch_light_level
-          - light.front_floodlight_level
+          - light.unknown_node_13_level
           - light.front_porch_ligh_level
           - light.garage_entry_lt_level
           - light.kitchen_bar_lt_level
@@ -140,17 +132,18 @@ views:
         title: All Switches
         show_header_toggle: true
         entities:
-          - switch.creality_cr10s_s4_switch
+          - switch.aeon_labs_dsc06106_smart_energy_switch_switch
+          - switch.aeon_labs_dsc06106_smart_energy_switch_switch_2
+          - switch.aeon_labs_dsc06106_smart_energy_switch_switch_3
           - switch.bar_outlet_switch
-          - switch.dragon_tech_unknown_type4447_id3031_switch
+          - switch.dragon_tech_unknown_type_4447_id_3031_switch
           - switch.ext_lr_outlet_switch
           - switch.living_room_fan_switch
-          - switch.lock_doors_on_away_arm
-          - switch.lock_doors_on_home_arm
           - switch.mbr_fan_switch
           - switch.office_leds
-          - switch.tv_leds_switch
-          - switch.front_porch_outlet
+          - switch.coffee_table_lamp
+          - switch.front_porch_outl_switch
+          - cover.motorized_blinds
       - type: entities
         title: All Kitchen Lights
         show_header_toggle: true
@@ -158,7 +151,7 @@ views:
           - light.kitchen_sink_lt_level
           - light.kitchen_glass_lt_level
           - light.kitchen_bar_lt_level
-          - switch.dragon_tech_unknown_type4447_id3031_switch
+          - switch.dragon_tech_unknown_type_4447_id_3031_switch
   - title: Automation / Scripts
     icon: mdi:creation
     cards:
@@ -166,7 +159,6 @@ views:
         title: All Automations
         show_header_toggle: true
         entities:
-          - automation.bedroom_motion_detection_alert
           - automation.home_assistant_update_notification
           - automation.joshua_morning_work_departure
           - automation.sunrise_procedure
@@ -179,32 +171,31 @@ views:
         entities:
           - script.all_lights_off
           - script.all_lights_on
-          - script.joshua_bedtime
+          - script.bedtime_joshua
           - script.morning_work_departure
           - script.sunrise_procedure
           - script.sunset_procedure
           - script.update_notification
           - script.cr10s_s4_print_finished_alert
           - script.ender_3_print_finished_alert
-  - title: Cameras
-    icon: mdi:cctv
+          - script.turn_off_christmas_lights
+  - title: Plex
+    icon: mdi:plex
     cards:
-      - type: picture-glance
-        title: Master Bedroom Camera
-        entities: 
-          - light.mbr_light_level
-          - sensor.master_bedroom_camera_motion_detected
-        camera_image: camera.master_bedroom_camera
-      - type: picture-glance
-        title: 3D Printer Camera
-        entities:
-          - sensor.3d_printer_camera_motion_detected
-        camera_image: camera.3d_printer_camera
-      - type: picture-glance
-        title: Living Room Camera
-        entities: 
-          - light.living_room_ligh_level
-          - light.nook_light_level
-          - switch.living_room_fan_switch
-          - sensor.living_room_camera_motion_detected
-        camera_image: camera.living_room_camera
+      - type: "custom:monster-card"
+        card:
+          type: entities
+          show_header_toggle: false
+        filter:
+          include:
+            - entity_id: media_player.plex*
+  - title: Plex
+    icon: mdi:network
+    cards:
+      - type: "custom:monster-card"
+        card:
+          type: entities
+          show_header_toggle: false
+        filter:
+          include:
+            - entity_id: device_tracker*

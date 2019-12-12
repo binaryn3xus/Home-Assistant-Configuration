@@ -8,60 +8,38 @@ homeassistant:
   customize: !include misc/customize.yaml
   auth_providers:
    - type: homeassistant
-   - type: legacy_api_password
-     api_password: !secret http_password
 
-hassio:
 frontend:
   themes: !include themes.yaml
 lovelace:
   mode: yaml
 config:
 updater:
-discovery:
 logbook:
+logger:
 sun:
 system_health:
 
+cloud:
+  alexa:
+    filter:
+      exclude_domains:
+        - media_player
+
 http:
   base_url: !secret http_base_url
-  ssl_certificate: /ssl/fullchain.pem  
-  ssl_key: /ssl/privkey.pem  
 
 mqtt:
-  broker: core-mosquitto
+  broker: !secret mqtt_ip_address
   username: !secret mqtt_username
   password: !secret mqtt_password
-
-#Emulated Hue (For Echo Support)
-emulated_hue:
-  expose_by_default: false
-  host_ip: !secret ha_ip_address
-  listen_port: 8300
-  exposed_domains:
-    - light
-    - switch
 
 ecobee:
   api_key: !secret ecobee_api_key
 
-octoprint:
-  - host: !secret octoprint_cr10s_s4_host_ip
-    api_key: !secret octoprint_cr10s_s4_api_key
-    name: Creality CR-10S S4
-    bed: true
-    number_of_tools: 1
-  - host: !secret octoprint_ender3_host_ip
-    api_key: !secret octoprint_ender3_api_key
-    name: Creality Ender 3
-    bed: true
-    number_of_tools: 1
-
 abode:
   username: !secret abode_username
   password: !secret abode_password
-  name: Abode Alarm System
-  polling: False
 
 joaoapps_join:
   - name: JoshuaAndroidDevice
@@ -73,23 +51,20 @@ zwave:
   polling_interval: 10000
   network_key: !secret zwave_network_key
 
-ring:
-  username: !secret ring_username
-  password: !secret ring_password
+input_boolean:
+  goodnight_mode:
+    name: Goodnight Mode
+    initial: off
+    icon: mdi:weather-night
 
-weather:
-  - platform: darksky
-    api_key: !secret dark_sky_api
-
-alexa:
-amcrest: !include_dir_list amcrest/
-dialogflow:
+automation: !include_dir_list automations/
+cover: !include_dir_list covers/
 intent_script: !include intent_script.yaml
-automation: !include automations.yaml
 group: !include groups.yaml
-device_tracker: !include_dir_list device-trackers/
 notify: !include_dir_list notifications/
+octoprint: !include_dir_list octoprint/
 script: !include_dir_merge_named scripts/
 sensor: !include_dir_list sensors/
 switch: !include_dir_list switches/
 tts: !include_dir_list tts/
+weather: !include_dir_list weather/

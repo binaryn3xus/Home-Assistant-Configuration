@@ -1,0 +1,10 @@
+id: CR10S_S4_Print_Finished_Alert
+alias: CR10S S4 Print Finished Alert
+hide_entity: false
+initial_state: true
+trigger:
+  platform: state
+  entity_id: sensor.creality_cr10s_s4_current_state
+  from: 'Printing from SD'
+action:
+  service: script.cr10s_s4_print_finished_alert
