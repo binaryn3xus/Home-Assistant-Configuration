@@ -10,7 +10,6 @@ Proud Supporter of [NabuCasa](https://www.nabucasa.com/) - Help keep Home Assist
 
 * [Mosquitto Broker](https://hub.docker.com/_/eclipse-mosquitto) - For managing my Sonoff devices and any future MQTT devices (Docker Container)
 * [NodeRed](https://hub.docker.com/r/nodered/node-red) - NodeRed for my more complex automations
-* [Microsoft SQL Server](https://hub.docker.com/_/microsoft-mssql-server) - For logging to keep my HA instance fast by offloading to the work
 
 ## Components / Devices
 
@@ -26,7 +25,7 @@ Proud Supporter of [NabuCasa](https://www.nabucasa.com/) - Help keep Home Assist
   * Notifications
     * [Join](https://www.home-assistant.io/components/joaoapps_join/) - Join is an awesome app that allows you to push notifications to Android devices (like PushBullet, but free).
   * Remotes / Hubs
-    * [OctoPrint](https://www.home-assistant.io/components/octoprint/) (_Work In Progress_)
+    * [OctoPrint](https://www.home-assistant.io/components/octoprint/)
   * Sensors
     * [EcoBee Thermostat](https://www.home-assistant.io/components/ecobee/)
     * [Dark Sky](https://www.home-assistant.io/components/weather.darksky/)

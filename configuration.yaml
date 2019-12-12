@@ -16,6 +16,7 @@ lovelace:
 config:
 updater:
 logbook:
+logger:
 sun:
 system_health:
 
@@ -28,51 +29,13 @@ cloud:
 http:
   base_url: !secret http_base_url
 
-recorder:
-  purge_keep_days: 10
-  db_url: !secret mssql_db_url
-
 mqtt:
   broker: !secret mqtt_ip_address
   username: !secret mqtt_username
   password: !secret mqtt_password
 
-device_tracker:
-  - platform: nmap_tracker
-    hosts: 192.168.1.0/24
-    exclude:
-      - !secret ha_ip_address
-
-#Emulated Hue (For Echo Support)
-#emulated_hue:
-#  expose_by_default: false
-#  host_ip: !secret ha_ip_address
-#  listen_port: 80
-#  upnp_bind_multicast: true
-#  exposed_domains:
-#    - light
-#    - switch
-#    - input_boolean
-#  entities:
-#    input_boolean.goodnight_mode:
-#      name: "Goodnight Mode"
-#      hidden: false
-
 ecobee:
   api_key: !secret ecobee_api_key
-
-# Experiencing networking or Octoprint image issues - Disabling for now
-#octoprint:
-#  - host: !secret octoprint_cr10s_s4_host_ip
-#    api_key: !secret octoprint_cr10s_s4_api_key
-#    name: Creality CR-10S S4
-#    bed: true
-#    number_of_tools: 1
-# - host: !secret octoprint_ender3_host_ip
-#    api_key: !secret octoprint_ender3_api_key
-#    name: Creality Ender 3
-#    bed: true
-#    number_of_tools: 1
 
 abode:
   username: !secret abode_username
@@ -94,36 +57,14 @@ input_boolean:
     initial: off
     icon: mdi:weather-night
 
-plex:
-  host: !secret plex_ip
-  port: 32400
-  token: !secret plex_token
-  ssl: false
-  verify_ssl: false
-
-weather:
-  - platform: darksky
-    api_key: !secret dark_sky_api
-
-cover:
-  - platform: mqtt
-    name: "Motorized Blinds"
-    command_topic: "BlindsMCU/blindsCommand"
-    set_position_topic: "BlindsMCU/positionCommand"
-    position_topic: "BlindsMCU/positionState"
-    state_topic: "BlindsMCU/positionState"
-    retain: true
-    payload_open: "OPEN"
-    payload_close: "CLOSE"
-    payload_stop: "STOP"
-    position_open: 0
-    position_closed: 12
-
 automation: !include_dir_list automations/
+cover: !include_dir_list covers/
 intent_script: !include intent_script.yaml
 group: !include groups.yaml
 notify: !include_dir_list notifications/
+octoprint: !include_dir_list octoprint/
 script: !include_dir_merge_named scripts/
 sensor: !include_dir_list sensors/
 switch: !include_dir_list switches/
 tts: !include_dir_list tts/
+weather: !include_dir_list weather/

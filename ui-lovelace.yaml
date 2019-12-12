@@ -72,38 +72,39 @@ views:
             - sensor.creality_ender_3_current_state
             - sensor.creality_ender_3_time_elapsed
             - sensor.creality_ender_3_time_remaining
-#  - title: 3D Printers
-#    icon: mdi:printer-3d
-#    cards:
-#      - type: entities
-#        title: Creality CR10S S4
-#        show_header_toggle: true
-#        entities:
-#          - binary_sensor.creality_cr_10s_s4_printing
-#          - binary_sensor.creality_cr_10s_s4_printing_error
-#          - sensor.creality_cr_10s_s4_job_percentage
-#          - sensor.creality_cr_10s_s4_target_bed_temp
-#          - sensor.creality_cr_10s_s4_actual_bed_temp
-#          - sensor.creality_cr_10s_s4_target_tool0_temp
-#          - sensor.creality_cr_10s_s4_actual_tool0_temp
-#          - sensor.creality_cr_10s_s4_current_state
-#          - sensor.creality_cr_10s_s4_time_elapsed
-#          - sensor.creality_cr_10s_s4_time_remaining
-#      - type: entities
-#        title: Ender 3
-#        show_header_toggle: true
-#        entities:
-#          - switch.ender_3_switch
-#          - binary_sensor.creality_ender_3_printing
-#          - binary_sensor.creality_ender_3_printing_error
-#          - sensor.creality_ender_3_job_percentage
-#          - sensor.creality_ender_3_target_bed_temp
-#          - sensor.creality_ender_3_actual_bed_temp
-#          - sensor.creality_ender_3_target_tool0_temp
-#          - sensor.creality_ender_3_actual_tool0_temp
-#          - sensor.creality_ender_3_current_state
-#          - sensor.creality_ender_3_time_elapsed
-#          - sensor.creality_ender_3_time_remaining        
+  - title: 3D Printers
+    icon: mdi:printer-3d
+    cards:
+      - type: entities
+        title: Creality CR10S S4
+        show_header_toggle: true
+        entities:
+          - switch.aeon_labs_dsc06106_smart_energy_switch_switch_3
+          - binary_sensor.creality_cr_10s_s4_printing
+          - binary_sensor.creality_cr_10s_s4_printing_error
+          - sensor.creality_cr_10s_s4_job_percentage
+          - sensor.creality_cr_10s_s4_target_bed_temp
+          - sensor.creality_cr_10s_s4_actual_bed_temp
+          - sensor.creality_cr_10s_s4_target_tool0_temp
+          - sensor.creality_cr_10s_s4_actual_tool0_temp
+          - sensor.creality_cr_10s_s4_current_state
+          - sensor.creality_cr_10s_s4_time_elapsed
+          - sensor.creality_cr_10s_s4_time_remaining
+      - type: entities
+        title: Ender 3
+        show_header_toggle: true
+        entities:
+          - switch.aeon_labs_dsc06106_smart_energy_switch_switch_2
+          - binary_sensor.creality_ender_3_printing
+          - binary_sensor.creality_ender_3_printing_error
+          - sensor.creality_ender_3_job_percentage
+          - sensor.creality_ender_3_target_bed_temp
+          - sensor.creality_ender_3_actual_bed_temp
+          - sensor.creality_ender_3_target_tool0_temp
+          - sensor.creality_ender_3_actual_tool0_temp
+          - sensor.creality_ender_3_current_state
+          - sensor.creality_ender_3_time_elapsed
+          - sensor.creality_ender_3_time_remaining        
   - title: Lights / Switches
     icon: mdi:lightbulb
     cards:
@@ -158,7 +159,6 @@ views:
         title: All Automations
         show_header_toggle: true
         entities:
-          - automation.bedroom_motion_detection_alert
           - automation.home_assistant_update_notification
           - automation.joshua_morning_work_departure
           - automation.sunrise_procedure
