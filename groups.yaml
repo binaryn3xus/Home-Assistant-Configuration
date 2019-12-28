@@ -47,7 +47,7 @@ weather_data:
     - sun.sun
     - sensor.moon
 
-houseLights:
+holiday_lights:
   name: Holiday Lights
   control: hidden
   entities:    
