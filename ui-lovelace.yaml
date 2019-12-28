@@ -36,19 +36,19 @@ views:
       - type: conditional
         conditions:
           - entity: sensor.christmas_season
-            state: true
-        cards:
-          - type: entities
-            title: Holiday Lights
-            show_header_toggle: false
-            entities:    
-              - light.holiday_lights
-              - light.holiday_color_1
-              - light.holiday_color_2
-              - light.holiday_color_3
-              - light.holiday_glitter
-              - light.holiday_lightning
-              - sensor.current_led
+            state: "true"
+        card:
+          type: entities
+          title: Holiday Lights
+          show_header_toggle: false
+          entities:    
+            - light.holiday_lights
+            - light.holiday_color_1
+            - light.holiday_color_2
+            - light.holiday_color_3
+            - light.holiday_glitter
+            - light.holiday_lightning
+            - sensor.current_led
       - type: conditional
         conditions:
           - entity: switch.creality_cr10s_s4_switch
