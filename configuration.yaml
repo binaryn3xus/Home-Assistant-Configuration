@@ -61,6 +61,7 @@ automation: !include_dir_list automations/
 cover: !include_dir_list covers/
 intent_script: !include intent_script.yaml
 group: !include groups.yaml
+light: !include_dir_list lights/
 notify: !include_dir_list notifications/
 octoprint: !include_dir_list octoprint/
 script: !include_dir_merge_named scripts/

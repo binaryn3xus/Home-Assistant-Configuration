@@ -41,18 +41,23 @@ christmas_lights:
     - switch.front_porch_outl_switch
     - switch.ext_lr_outlet_switch
 
-amcrest_meta:
-  name: Amcrest Meta Data
-  entities:
-    - sensor.master_bedroom_camera_motion_detected
-    - sensor.3d_printer_camera_motion_detected
-    - sensor.living_room_camera_motion_detected
-
 weather_data:
   name: Weather Info
   entities:
     - sun.sun
     - sensor.moon
+
+houseLights:
+  name: Holiday Lights
+  control: hidden
+  entities:    
+    - light.holiday_lights
+    - light.holiday_color_1
+    - light.holiday_color_2
+    - light.holiday_color_3
+    - light.holiday_glitter
+    - light.holiday_lightning
+    - sensor.current_led
 
 hvac_system:
   name: HVAC System

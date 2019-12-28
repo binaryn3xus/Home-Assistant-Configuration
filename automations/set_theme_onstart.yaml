@@ -1,4 +1,4 @@
-id: Set_Theme_OnStart
+id: set_theme_at_startup
 alias: 'Set theme at startup'
 hide_entity: false
 initial_state: true

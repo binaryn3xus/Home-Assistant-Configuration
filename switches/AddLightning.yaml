@@ -1,0 +1,7 @@
+platform: mqtt
+name: "Add Lightning"
+state_topic: "houseleds/lightning/state"
+command_topic: "houseleds/addEffects"
+payload_on: "Lightning On"
+payload_off: "Lightning Off"
+retain: false

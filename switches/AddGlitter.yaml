@@ -1,0 +1,7 @@
+platform: mqtt
+name: "Add Glitter"
+state_topic: "houseleds/glitter/state"
+command_topic: "houseleds/addEffects"
+payload_on: "Glitter On"
+payload_off: "Glitter Off"
+retain: false

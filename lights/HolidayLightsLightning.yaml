@@ -1,0 +1,10 @@
+platform: mqtt
+name: "Holiday Lightning"
+state_topic: "RoofLightsMCU/lightning/state"
+command_topic: "RoofLightsMCU/addEffects"
+payload_on: "Lightning On"
+payload_off: "Lightning Off"
+white_value_command_topic: "RoofLightsMCU/lightningChance"
+white_value_state_topic: "RoofLightsMCU/lightningChanceState"
+white_value_scale: 500
+retain: true

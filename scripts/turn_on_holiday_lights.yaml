@@ -1,0 +1,36 @@
+turn_on_holiday_lights:
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: light.holiday_lights
+        effect: Double_Crash
+    - service: light.turn_on
+      data:
+        entity_id: light.holiday_color_1
+        brightness: 255
+        hs_color: 120,100
+        rgb_color: 0,255,0
+        xy_color: 0.172,0.747
+    - service: light.turn_on
+      data:
+        entity_id: light.holiday_color_2
+        brightness: 255
+        hs_color: 0,100
+        rgb_color: 255,0,0
+        xy_color: 0.701,0.299
+    - service: light.turn_on
+      data:
+        entity_id: light.holiday_color_3
+        brightness: 255
+        hs_color: 0,0
+        rgb_color: 255,255,255
+        xy_color: 0.323,0.329
+    - service: light.turn_on
+      data:
+        entity_id: light.holiday_glitter
+    - service_template: >
+        {% if is_state('sensor.christmas_season', 'true') %}
+          homeassistant.turn_on
+        {% endif %}
+      data:
+        entity_id: group.christmas_lights

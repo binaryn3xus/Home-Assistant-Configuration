@@ -1,0 +1,13 @@
+id: Turn_Off_Holiday_Lights
+alias: Turn off Holiday lights
+hide_entity: false
+initial_state: true
+trigger:
+  platform: time
+  at: '23:00:00'
+condition:
+  - condition: state
+    entity_id: 'light.holiday_lights'
+    state: 'on'
+action:
+  service: script.turn_off_holiday_lights

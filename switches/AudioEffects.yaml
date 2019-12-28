@@ -1,0 +1,7 @@
+platform: mqtt
+name: "Audio Effects"
+state_topic: "houseleds/audio/state"
+command_topic: "houseleds/addEffects"
+payload_on: "Audio On"
+payload_off: "Audio Off"
+retain: false

@@ -33,6 +33,19 @@ views:
           - type: thermostat
             name: Upstairs
             entity: climate.upstairs
+      - type: vertical-stack
+        cards:
+          - type: entities
+            title: Holiday Lights
+            show_header_toggle: false
+            entities:    
+              - light.holiday_lights
+              - light.holiday_color_1
+              - light.holiday_color_2
+              - light.holiday_color_3
+              - light.holiday_glitter
+              - light.holiday_lightning
+              - sensor.current_led
       - type: conditional
         conditions:
           - entity: switch.creality_cr10s_s4_switch
@@ -109,13 +122,9 @@ views:
     icon: mdi:lightbulb
     cards:
       - type: entities
-        title: All Lights
+        title: All Inside Lights
         show_header_toggle: true
         entities:
-          - light.back_floodlights_level
-          - light.back_porch_light_level
-          - light.unknown_node_13_level
-          - light.front_porch_ligh_level
           - light.garage_entry_lt_level
           - light.kitchen_bar_lt_level
           - light.kitchen_glass_lt_level
@@ -128,6 +137,14 @@ views:
           - light.office_light_level
           - light.primary_garage_l_level
           - light.stairway_light_level
+      - type: entities
+        title: All Outside Lights
+        show_header_toggle: true
+        entities:
+          - light.back_floodlights_level
+          - light.back_porch_light_level
+          - light.front_porch_ligh_level
+          - light.unknown_node_13_level
       - type: entities
         title: All Switches
         show_header_toggle: true
@@ -143,6 +160,7 @@ views:
           - switch.office_leds
           - switch.coffee_table_lamp
           - switch.front_porch_outl_switch
+          - switch.holiday_lights_main
           - cover.motorized_blinds
       - type: entities
         title: All Kitchen Lights
@@ -159,26 +177,30 @@ views:
         title: All Automations
         show_header_toggle: true
         entities:
-          - automation.home_assistant_update_notification
-          - automation.joshua_morning_work_departure
-          - automation.sunrise_procedure
-          - automation.sunset_procedure
           - automation.cr10s_s4_print_finished_alert
           - automation.ender_3_print_finished_alert
+          - automation.goodnight_routine
+          - automation.home_assistant_update_notification
+          - automation.joshua_morning_work_departure
+          - automation.set_theme_at_startup
+          - automation.sunrise_procedure
+          - automation.sunset_procedure
+          - automation.turn_off_holiday_lights
       - type: entities
         title: All Scripts
-        show_header_toggle: true
+        show_header_toggle: false
         entities:
           - script.all_lights_off
           - script.all_lights_on
           - script.bedtime_joshua
+          - script.cr10s_s4_print_finished_alert
+          - script.ender_3_print_finished_alert
           - script.morning_work_departure
           - script.sunrise_procedure
           - script.sunset_procedure
+          - script.turn_off_holiday_lights
+          - script.turn_on_holiday_lights
           - script.update_notification
-          - script.cr10s_s4_print_finished_alert
-          - script.ender_3_print_finished_alert
-          - script.turn_off_christmas_lights
   - title: Plex
     icon: mdi:plex
     cards:

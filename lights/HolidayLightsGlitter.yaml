@@ -1,0 +1,12 @@
+platform: mqtt
+name: "Holiday Glitter"
+state_topic: "RoofLightsMCU/glitter/state"
+command_topic: "RoofLightsMCU/addEffects"
+payload_on: "Glitter On"
+payload_off: "Glitter Off"
+rgb_command_topic: "RoofLightsMCU/glitterColor"
+rgb_state_topic: "RoofLightsMCU/glitterColorState"
+white_value_command_topic: "RoofLightsMCU/glitterChance"
+white_value_state_topic: "RoofLightsMCU/glitterChanceState"
+white_value_scale: 255
+retain: true

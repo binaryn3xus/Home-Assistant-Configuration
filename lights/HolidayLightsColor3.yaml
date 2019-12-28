@@ -1,0 +1,7 @@
+platform: mqtt
+name: "Holiday Color 3"
+command_topic: "RoofLightsMCU/ColorPower"
+state_topic: "RoofLightsMCU/powerState"
+rgb_command_topic: "RoofLightsMCU/color3"
+rgb_state_topic: "RoofLightsMCU/color3State"
+retain: true
