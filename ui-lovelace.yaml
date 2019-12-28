@@ -33,7 +33,10 @@ views:
           - type: thermostat
             name: Upstairs
             entity: climate.upstairs
-      - type: vertical-stack
+      - type: conditional
+        conditions:
+          - entity: sensor.christmas_season
+            state: true
         cards:
           - type: entities
             title: Holiday Lights
