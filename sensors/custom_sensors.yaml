@@ -9,3 +9,12 @@ sensors:
             {% else %}
               false
             {% endif %}
+  valentines_day:
+    friendly_name: "Valentines Day"
+    entity_id: sensor.date_time
+    value_template: >
+            {% if now().day == 14 and now().month == 2 %}
+              true
+            {% else %}
+              false
+            {% endif %}

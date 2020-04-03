@@ -1,0 +1,7 @@
+platform: mqtt
+name: "HeatPad"
+command_topic: "cmnd/heatpad/power"
+state_topic: "stat/heatpad/POWER"
+qos: 1
+payload_on: "ON"
+payload_off: "OFF"

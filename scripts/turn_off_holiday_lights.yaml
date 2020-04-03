@@ -3,6 +3,12 @@ turn_off_holiday_lights:
     - service: light.turn_off
       data:
         entity_id: light.holiday_lights
+    - service: light.turn_off
+      data:
+        entity_id: light.holiday_glitter
+    - service: light.turn_off
+      data:
+        entity_id: light.holiday_lightning
     - service_template: >
         {% if is_state('sensor.christmas_season', 'true') %}
           homeassistant.turn_off

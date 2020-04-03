@@ -128,25 +128,6 @@ sensor.christmas_season:
   emulated_hue_hidden: true
   icon: mdi:pine-tree
 
-####Customize Media Players####
-
-media_player.living_room_kodi:
-  friendly_name: Kodi (Living Room)
-  emulated_hue_hidden: true
-  icon: mdi:kodi
-media_player.desktopgpmdp:
-  friendly_name: Google Play Music Desktop Player
-  emulated_hue_hidden: true
-  icon: mdi:google-play
-media_player.kitchen_home:
-  friendly_name: Kitchen Google Home
-  emulated_hue_hidden: false
-  icon: mdi:google-assistant
-media_player.joshuachromecastv2:
-  friendly_name: Living Room Chromecast
-  emulated_hue_hidden: false
-  icon: mdi:google-play
-
 ####Customize Groups####
 
 group.all_devices:
@@ -172,9 +153,6 @@ group.all_scripts:
   friendly_name: All Scripts
   emulated_hue_hidden: true
   hidden: false
-group.xboxlive_friends:
-  friendly_name: Xbox Live Friends
-  emulated_hue_hidden: true
 group.weather_data:
   friendly_name: Weather Info
   emulated_hue_hidden: true
@@ -183,4 +161,7 @@ group.network_devices:
   emulated_hue_hidden: true
 group.kitchen_lights:
   friendly_name: All Kitchen Lights
+  emulated_hue_hidden: false
+group.bedroom_lights:
+  friendly_name: Bedroom Lights
   emulated_hue_hidden: false

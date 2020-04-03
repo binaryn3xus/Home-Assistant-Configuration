@@ -1,0 +1,7 @@
+platform: mqtt
+name: "Washing Machine"
+command_topic: "cmnd/washer/power"
+state_topic: "stat/washer/POWER"
+qos: 1
+payload_on: "ON"
+payload_off: "OFF"

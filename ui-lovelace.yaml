@@ -1,7 +1,7 @@
 title: Joshua's Home
 resources:
-  - url: /local/monster-card.js
-    type: js
+  - url: /local/auto-entities.js
+    type: module
 views:
   - title: Home
     icon: mdi:home-assistant
@@ -17,6 +17,7 @@ views:
             - sun.sun
             - sensor.moon
             - sensor.christmas_season
+            - sensor.valentines_day
             - input_boolean.goodnight_mode
         - type: entities
           title: Common
@@ -49,6 +50,12 @@ views:
             - light.holiday_glitter
             - light.holiday_lightning
             - sensor.current_led
+      - type: entities
+        title: Bed Lights
+        show_header_toggle: false
+        entities:    
+          - light.bed_lights
+          #- light.bed_color_1
       - type: conditional
         conditions:
           - entity: switch.creality_cr10s_s4_switch
@@ -140,6 +147,7 @@ views:
           - light.office_light_level
           - light.primary_garage_l_level
           - light.stairway_light_level
+          - light.mbr_outlet_level
       - type: entities
         title: All Outside Lights
         show_header_toggle: true
@@ -160,11 +168,19 @@ views:
           - switch.ext_lr_outlet_switch
           - switch.living_room_fan_switch
           - switch.mbr_fan_switch
-          - switch.office_leds
-          - switch.coffee_table_lamp
           - switch.front_porch_outl_switch
-          - switch.holiday_lights_main
           - cover.motorized_blinds
+      - type: "custom:auto-entities"
+        show_header_toggle: false
+        card:
+          type: entities
+          title: Sonoff Devices
+          show_header_toggle: false
+        filter:
+          include:
+            - group: group.sonoff_devices
+        sort:
+          method: name
       - type: entities
         title: All Kitchen Lights
         show_header_toggle: true
@@ -203,24 +219,15 @@ views:
           - script.sunset_procedure
           - script.turn_off_holiday_lights
           - script.turn_on_holiday_lights
+          - script.turn_on_valentines_lights
           - script.update_notification
   - title: Plex
     icon: mdi:plex
     cards:
-      - type: "custom:monster-card"
+      - type: "custom:auto-entities"
         card:
           type: entities
           show_header_toggle: false
         filter:
           include:
             - entity_id: media_player.plex*
-  - title: Plex
-    icon: mdi:network
-    cards:
-      - type: "custom:monster-card"
-        card:
-          type: entities
-          show_header_toggle: false
-        filter:
-          include:
-            - entity_id: device_tracker*

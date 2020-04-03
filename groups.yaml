@@ -28,6 +28,13 @@ abode_alarm:
     - binary_sensor.quick_entry_garage_door
     - binary_sensor.lock_and_arm_for_home
 
+bedroom_lights:
+  name: Bedroom Lights
+  control: hidden
+  entities:    
+    - light.bed_lights
+    - light.mbr_light_level
+
 cameras:
   name: Amcrest Cameras
   entities:
@@ -129,6 +136,15 @@ Octoprint_Creality_CR10S_S4:
     - sensor.creality_cr10s_s4_exporting
     - sensor.creality_cr10s_s4_time_elapsed
     - sensor.creality_cr10s_s4_time_remaining
+
+Sonoff_Devices:
+  name: Sonoff Devices
+  entities:
+    - switch.washing_machine
+    - switch.salt_lamp
+    - switch.office_leds
+    - switch.heatpad
+    - switch.coffee_table_lamp
 
 time_values:
   name: Date & Time Values

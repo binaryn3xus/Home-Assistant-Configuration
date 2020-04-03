@@ -1,0 +1,5 @@
+turn_off_holiday_lights:
+  sequence:
+    - service: light.turn_off
+      data:
+        entity_id: light.mbr_outlet_level
