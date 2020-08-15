@@ -1,6 +1,0 @@
-
-host: !secret octoprint_ender3_host_ip
-api_key: !secret octoprint_ender3_api_key
-name: Creality Ender 3
-bed: true
-number_of_tools: 1

@@ -1,0 +1,8 @@
+# Downstair Bathroom Light
+platform: mqtt
+name: "3D Printing Room Light"
+state_topic: "shellies/Shelly3DPrinterRoomLightFan/relay/0"
+command_topic: "shellies/Shelly3DPrinterRoomLightFan/relay/0/command"
+payload_on: "on"
+payload_off: "off"
+retain: false

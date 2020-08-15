@@ -1,5 +1,0 @@
-host: !secret octoprint_cr10s_s4_host_ip
-api_key: !secret octoprint_cr10s_s4_api_key
-name: Creality CR-10S S4
-bed: true
-number_of_tools: 1

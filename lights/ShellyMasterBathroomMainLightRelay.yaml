@@ -1,0 +1,8 @@
+# Downstair Bathroom Light
+platform: mqtt
+name: "Master Bathroom Light"
+state_topic: "shellies/ShellyMasterBathroomLight/relay/0"
+command_topic: "shellies/ShellyMasterBathroomLight/relay/0/command"
+payload_on: "on"
+payload_off: "off"
+retain: false

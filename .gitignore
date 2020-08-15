@@ -1,45 +1,38 @@
-# Logs
-logs
-*.log
-# Python cache
-__pycache__
-*.pyc
+# Directory (contents) ignores
+.cloud
+.storage
+deps
 
-# Other
-*.uuid
-*.conf
+# Generic ignores
+*.log
 *.db
-*.db-journal
 *.db-shm
 *.db-wal
-*.log
-*.noload
-*.txt
-*.sqlite
-*.xml
-*.backup
+*.pyc
 *.pickle
-*.cookies*
-*.google.token
-.ip_authenticated.yaml
-.config_entries.json
+._*
+__pycache__
+
+
+# Specific file ignores
 .google.token
-.ring_cache.pickle
-.spotify-token-cache
-.storage
-.cloud
-.pc-session
-.vscode/*
-life360.sh
-abodepy_cache.pickle
-camera_recording.py
-home-assistant.env
-home-assistant.*
-known_devices.yaml
-entity_registry.yaml
-secrets.yaml
-google_calendars.yaml
-zwave_device_config.yaml
+.uuid
 emulated_hue_ids.json
-components
-deps
+google_calendars.yaml
+known_devices.yaml
+options.xml
+OZW_Log.txt
+pyozw.sqlite
+secrets.yaml
+webostv.conf
+zwcfg_*
+zwscene.xml
+
+
+# Ignore files created by IDE's
+.vscode
+
+
+# Specific keeps
+!.gitkeep
+!.gitignore

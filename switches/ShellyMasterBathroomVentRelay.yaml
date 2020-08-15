@@ -1,0 +1,8 @@
+# Downstair Bathroom Vent
+platform: mqtt
+name: "Master Bathroom Vent"
+state_topic: "shellies/ShellyMasterBathroomVent/relay/0"
+command_topic: "shellies/ShellyMasterBathroomVent/relay/0/command"
+payload_on: "on"
+payload_off: "off"
+retain: false
