@@ -1,73 +1,69 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
 homeassistant:
-  name: Home
-  latitude: !secret home_latitude
-  longitude: !secret home_longitude
-  elevation: !secret home_elevation
-  unit_system: imperial
-  time_zone: America/New_York
-  customize: !include misc/customize.yaml
-  auth_providers:
-   - type: homeassistant
+  customize: !include customize.yaml
 
 frontend:
-  themes: !include_dir_merge_named themes/
-lovelace:
-  mode: yaml
-config:
-updater:
-logbook:
-logger:
-sun:
-system_health:
-discovery:
-mobile_app:
+  themes: !include_dir_merge_named themes
 
-cloud:
-  alexa:
-    filter:
-      exclude_domains:
-        - media_player
-
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 http:
-  base_url: !secret http_base_url
+  base_url: 192.168.1.98:8123
 
-mqtt:
-  broker: !secret mqtt_ip_address
-  username: !secret mqtt_username
-  password: !secret mqtt_password
+remote:
+  - platform: harmony
+    name: 'Living Room'
+    host: 192.168.20.38
+    activity: Play Xbox
 
-ecobee:
-  api_key: !secret ecobee_api_key
+alexa_media:
+  accounts:
+    - email: !secret amazon_user
+      password: !secret amazon_password
+      url: amazon.com
 
-abode:
-  username: !secret abode_username
-  password: !secret abode_password
+panel_iframe:
+  portainer:
+    title: Portainer
+    icon: mdi:ferry
+    url: https://portainer.fourthechelonhq.com/
+  sonarr:
+    title: Sonarr
+    icon: mdi:television-box
+    url: https://sonarr.fourthechelonhq.com/
+  radarr:
+    title: Radarr
+    icon: mdi:movie
+    url: https://radarr.fourthechelonhq.com/
+  nbzget:
+    title: NZBGet
+    icon: mdi:progress-download
+    url: https://nzbget.fourthechelonhq.com/
+  transmission:
+    title: Transmission
+    icon: mdi:car-shift-pattern
+    url: https://transmission.fourthechelonhq.com/
+  jackett:
+    title: Jackett
+    icon: mdi:tshirt-crew
+    url: https://jackett.fourthechelonhq.com/
 
-joaoapps_join:
-  - name: JoshuaAndroidDevice
-    device_id: !secret joshua_android_id
-    api_key: !secret join_api_key
+# PiHole
+pi_hole: 
+  - host: !secret pihole_ipadress
+    api_key: !secret pihole_api
 
-zwave:
-  usb_path: /dev/ttyACM0
-  polling_interval: 10000
-  network_key: !secret zwave_network_key
+# Text to speech
+tts:
+  - platform: google_translate
 
-input_boolean:
-  goodnight_mode:
-    name: Goodnight Mode
-    initial: off
-    icon: mdi:weather-night
-
-automation: !include_dir_list automations/
+automation: !include automations.yaml
 cover: !include_dir_list covers/
-intent_script: !include intent_script.yaml
 group: !include groups.yaml
 light: !include_dir_list lights/
-notify: !include_dir_list notifications/
-octoprint: !include_dir_list octoprint/
-script: !include_dir_merge_named scripts/
+script: !include scripts.yaml
+scene: !include scenes.yaml
 sensor: !include_dir_list sensors/
 switch: !include_dir_list switches/
-tts: !include_dir_list tts/
-weather: !include_dir_list weather/

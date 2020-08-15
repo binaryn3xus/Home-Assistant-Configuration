@@ -1,9 +1,0 @@
-id: Home_Assistant_Update_Notification
-alias: Home Assistant Update Notification
-hide_entity: false
-initial_state: true
-trigger:
-  platform: state
-  entity_id: updater.updater
-action:
-  service: script.update_notification

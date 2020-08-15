@@ -1,0 +1,71 @@
+- id: '1586114387078'
+  alias: Sunrise Automation
+  description: ''
+  trigger:
+  - event: sunrise
+    platform: sun
+  condition: []
+  action:
+  - data: {}
+    service: script.sunrise_script
+- id: '1586116713458'
+  alias: Sunset Automation
+  description: ''
+  trigger:
+  - event: sunset
+    offset: -01:00:00
+    platform: sun
+  condition: []
+  action:
+  - data: {}
+    service: script.sunset_procedure
+- id: '1586117279160'
+  alias: Bed Time Automation
+  description: ''
+  trigger:
+  - entity_id: input_boolean.goodnightmode
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data: {}
+    service: script.bedtime_joshua
+- id: '1589770574485'
+  alias: Enable PiHole
+  description: ''
+  trigger:
+  - entity_id: input_boolean.pi_hole
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data: {}
+    service: pi_hole.enable
+- id: '1589771493250'
+  alias: Disable PiHole
+  description: ''
+  trigger:
+  - entity_id: input_boolean.pi_hole
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      duration: '9999:00:00'
+    service: pi_hole.disable
+- id: '1595108471898'
+  alias: Secondary Garage Open Too Long
+  description: ''
+  trigger:
+  - entity_id: sensor.secondary_garage_door_sensor
+    for: 00:30:00
+    from: closed
+    platform: state
+    to: open
+  condition: []
+  action:
+  - data:
+      message: Secondard Garage Open for longer than 30 minutes
+    service: notify.mobile_app_pixel_3_xl

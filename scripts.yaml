@@ -1,0 +1,152 @@
+sunrise_script:
+  alias: Sunrise Script
+  sequence:
+  - device_id: 8d7d3aa6b51748c5a802a56ef5b26a09
+    domain: switch
+    entity_id: switch.livingroomtv_led_lights
+    type: turn_off
+  - device_id: 2d0f78a1da194414b4da332c7528e1e0
+    domain: switch
+    entity_id: switch.sonoffofficeleds
+    type: turn_off
+  - device_id: 42509a79e16e408384ffc977b0adeda6
+    domain: switch
+    entity_id: switch.bar_outlet_switch
+    type: turn_off
+  - device_id: 9435a800db954d11af8c5096c1554847
+    domain: switch
+    entity_id: switch.dragon_tech_unknown_type_4447_id_3031_switch
+    type: turn_off
+  - device_id: f9ff4b3d7b6647c28370f95a37622b12
+    domain: light
+    entity_id: light.mbr_light_level
+    type: turn_off
+  - device_id: efdc4a7adec54640b92035362c31a306
+    domain: light
+    entity_id: light.mbr_outlet_level
+    type: turn_off
+  - device_id: 0b538eb2f4344534b052753826685601
+    domain: light
+    entity_id: light.front_porch_light_level
+    type: turn_off
+  - device_id: ee1045b72568462ebb886975f890ec21
+    domain: light
+    entity_id: light.back_porch_light_level
+    type: turn_off
+  - device_id: 6efb7deea3d04c1691d411cd7d2edacf
+    domain: light
+    entity_id: light.front_floodlight_level
+    type: turn_off
+  - device_id: 715666dc382a41ad911016f66c0f2278
+    domain: light
+    entity_id: light.back_floodlights_level
+    type: turn_off
+  - device_id: 3fc59b566a4a49838eb6da8abc6271a4
+    domain: light
+    entity_id: light.garage_entry_light_level
+    type: turn_off
+  - device_id: c388c60d217e432992744f5bf9d0d284
+    domain: light
+    entity_id: light.primary_garage_l_level
+    type: turn_off
+sunset_procedure:
+  alias: Sunset Script
+  sequence:
+  - device_id: 8d7d3aa6b51748c5a802a56ef5b26a09
+    domain: switch
+    entity_id: switch.livingroomtv_led_lights
+    type: turn_on
+  - device_id: 2d0f78a1da194414b4da332c7528e1e0
+    domain: switch
+    entity_id: switch.officeleds
+    type: turn_on
+  - device_id: ee1045b72568462ebb886975f890ec21
+    domain: light
+    entity_id: light.back_porch_light_level
+    type: turn_on
+  - data:
+      brightness: 150
+      entity_id: light.bed_lights
+      rgb_color:
+      - 255
+      - 0
+      - 0
+    entity_id: light.bed_lights
+    service: light.turn_on
+  - brightness_pct: 100
+    device_id: 715666dc382a41ad911016f66c0f2278
+    domain: light
+    entity_id: light.back_floodlights_level
+    type: turn_on
+  - brightness_pct: 100
+    device_id: 6efb7deea3d04c1691d411cd7d2edacf
+    domain: light
+    entity_id: light.front_floodlight_level
+    type: turn_on
+  - device_id: 9435a800db954d11af8c5096c1554847
+    domain: switch
+    entity_id: switch.dragon_tech_unknown_type_4447_id_3031_switch
+    type: turn_on
+bedtime_joshua:
+  alias: Bedtime Joshua
+  sequence:
+  - data: {}
+    entity_id: input_boolean.goodnightmode
+    service: input_boolean.turn_off
+  - device_id: 8d7d3aa6b51748c5a802a56ef5b26a09
+    domain: switch
+    entity_id: switch.livingroomtv_led_lights
+    type: turn_off
+  - device_id: 2d0f78a1da194414b4da332c7528e1e0
+    domain: switch
+    entity_id: switch.officeleds
+    type: turn_off
+  - device_id: f9ff4b3d7b6647c28370f95a37622b12
+    domain: light
+    entity_id: light.mbr_light_level
+    type: turn_on
+  - device_id: efdc4a7adec54640b92035362c31a306
+    domain: light
+    entity_id: light.mbr_outlet_level
+    type: turn_on
+  - device_id: 0007fd4a18ea4c81aa1aa037527a1565
+    domain: switch
+    entity_id: switch.mbr_fan_switch
+    type: turn_on
+  - device_id: 3fc59b566a4a49838eb6da8abc6271a4
+    domain: light
+    entity_id: light.garage_entry_light_level
+    type: turn_off
+  - device_id: ee1045b72568462ebb886975f890ec21
+    domain: light
+    entity_id: light.back_porch_light_level
+    type: turn_off
+  - device_id: 0b538eb2f4344534b052753826685601
+    domain: light
+    entity_id: light.front_porch_light_level
+    type: turn_off
+  - device_id: 9435a800db954d11af8c5096c1554847
+    domain: switch
+    entity_id: switch.dragon_tech_unknown_type_4447_id_3031_switch
+    type: turn_off
+  - device_id: e2aad54c85754dae950f7d07bae86ec3
+    domain: alarm_control_panel
+    entity_id: alarm_control_panel.abode_alarm
+    type: arm_home
+  - data: {}
+    entity_id: light.bed_lights
+    service: light.turn_off
+  - device_id: 6501609daf224a90ae6b0cfd478e9e93
+    domain: switch
+    entity_id: switch.living_room_fan_switch
+    type: turn_off
+'1590965567595':
+  alias: Surround Sound - Mute
+  sequence:
+  - data:
+      command:
+      - Mute
+      device: 69831862
+      entity_id: remote.living_room
+    entity_id: remote.living_room
+    service: remote.send_command

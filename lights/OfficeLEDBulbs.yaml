@@ -1,0 +1,32 @@
+platform: mqtt
+name: "Office RGB Lights"
+command_topic: "cmnd/OfficeOverheadLEDBulbs/POWER"
+state_topic: "tele/OfficeOverheadLEDBulbs/STATE"
+state_value_template: "{{value_json.POWER}}"
+availability_topic: "tele/OfficeOverheadLEDBulbs/LWT"
+brightness_command_topic: "cmnd/OfficeOverheadLEDBulbs/Dimmer"
+brightness_state_topic: "tele/OfficeOverheadLEDBulbs/STATE"
+brightness_scale: 100
+on_command_type: "last"
+brightness_value_template: "{{value_json.Dimmer}}"
+color_temp_command_topic: "cmnd/OfficeOverheadLEDBulbs/CT"
+color_temp_state_topic: "tele/OfficeOverheadLEDBulbs/STATE"
+color_temp_value_template: "{{value_json.CT}}"
+rgb_command_topic: "cmnd/OfficeOverheadLEDBulbs/Color2"
+rgb_state_topic: "tele/OfficeOverheadLEDBulbs/STATE"
+rgb_value_template: "{{value_json.Color.split(',')[0:3]|join(',')}}"
+effect_command_topic: "cmnd/OfficeOverheadLEDBulbs/Scheme"
+effect_state_topic: "tele/OfficeOverheadLEDBulbs/STATE"
+effect_value_template: "{{value_json.Scheme}}"
+effect_list:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+payload_on: "ON"
+payload_off: "OFF"
+payload_available: "Online"
+payload_not_available: "Offline"
+qos: 1
+retain: false

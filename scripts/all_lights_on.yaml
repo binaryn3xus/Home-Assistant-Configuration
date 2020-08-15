@@ -1,6 +1,0 @@
-all_lights_on:
-  sequence:
-    # Turn on all lights
-    - service: homeassistant.turn_on
-      data:
-        entity_id: group.all_lights

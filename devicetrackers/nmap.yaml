@@ -1,4 +1,0 @@
-platform: nmap_tracker
-hosts: 192.168.1.0/24
-exclude:
-  - !secret ha_ip_address

@@ -1,7 +1,0 @@
-platform: mqtt
-name: "Office LEDs"
-command_topic: "cmnd/officeleds/power"
-state_topic: "stat/officeleds/POWER"
-qos: 1
-payload_on: "ON"
-payload_off: "OFF"
