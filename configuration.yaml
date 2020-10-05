@@ -10,12 +10,12 @@ frontend:
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
 http:
-  base_url: 192.168.1.98:8123
+  base_url: !secret http_base_url
 
 remote:
   - platform: harmony
     name: 'Living Room'
-    host: 192.168.20.38
+    host: !secret harmony_hub_ip
     activity: Play Xbox
 
 alexa_media:
