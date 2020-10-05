@@ -1,0 +1,3 @@
+platform: mqtt
+name: Master Bathroom Battery
+state_topic: "shellies/ShellyHTMasterBathroom/sensor/battery"
