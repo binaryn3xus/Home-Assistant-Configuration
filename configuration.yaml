@@ -24,32 +24,6 @@ alexa_media:
       password: !secret amazon_password
       url: amazon.com
 
-panel_iframe:
-  portainer:
-    title: Portainer
-    icon: mdi:ferry
-    url: https://portainer.fourthechelonhq.com/
-  sonarr:
-    title: Sonarr
-    icon: mdi:television-box
-    url: https://sonarr.fourthechelonhq.com/
-  radarr:
-    title: Radarr
-    icon: mdi:movie
-    url: https://radarr.fourthechelonhq.com/
-  nbzget:
-    title: NZBGet
-    icon: mdi:progress-download
-    url: https://nzbget.fourthechelonhq.com/
-  transmission:
-    title: Transmission
-    icon: mdi:car-shift-pattern
-    url: https://transmission.fourthechelonhq.com/
-  jackett:
-    title: Jackett
-    icon: mdi:tshirt-crew
-    url: https://jackett.fourthechelonhq.com/
-
 # PiHole
 pi_hole: 
   - host: !secret pihole_ipadress
