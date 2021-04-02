@@ -1,5 +1,6 @@
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
+# https://www.home-assistant.io/integrations/default_config/
 default_config:
 
 homeassistant:
@@ -8,9 +9,9 @@ homeassistant:
 frontend:
   themes: !include_dir_merge_named themes
 
-# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-http:
-  base_url: !secret http_base_url
+recorder:
+  purge_keep_days: 31
+  db_url: !secret mariadb_cs
 
 remote:
   - platform: harmony

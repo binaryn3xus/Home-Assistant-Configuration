@@ -2,6 +2,7 @@
 # pylint: disable=dangerous-default-value
 import logging
 import voluptuous as vol
+import homeassistant.helpers.config_validation as cv
 from homeassistant import config_entries
 from homeassistant.core import callback
 
@@ -17,7 +18,9 @@ from .const import (DOMAIN,
                     CONF_CLOUD_AUTH_KEY, CONF_CLOUD_SERVER,
                     CONF_TMPL_NAME, CONF_ADDITIONAL_INFO,
                     CONF_OBJECT_ID_PREFIX,
-                    CONF_UNAVALABLE_AFTER_SEC
+                    CONF_UNAVALABLE_AFTER_SEC,
+                    CONF_MQTT_SERVER_HOST, CONF_MQTT_SERVER_PORT,
+                    CONF_MQTT_SERVER_USERNAME, CONF_MQTT_SERVER_PASSWORD
 )
 from .configuration_schema import STEP_SCHEMA
 
@@ -40,8 +43,11 @@ class ShellyFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         )
 
     async def async_step_input(self, user_input={}):
+        title = "Shelly"
+        if user_input and 'id_prefix' in user_input:
+            title = user_input["id_prefix"] 
         return self.async_create_entry(
-            title=user_input["id_prefix"],
+            title=title,
             data=user_input
         )
 
@@ -121,7 +127,7 @@ class ShellyOptionsFlowHandler(config_entries.OptionsFlow):
                 self.v(CONF_UPGRADE_BETA_SWITCH): bool,
                 self.v(CONF_IGMPFIX): bool,
                 self.v(CONF_HOST_IP) : str,
-                self.v(CONF_MQTT_PORT) : int
+                self.v(CONF_MQTT_PORT) : cv.positive_int
             })
             return self.async_show_form(step_id="config_1", data_schema=schema)
 
@@ -142,6 +148,20 @@ class ShellyOptionsFlowHandler(config_entries.OptionsFlow):
                 self.v(CONF_PASSWORD): str
             })
             return self.async_show_form(step_id="config_2", data_schema=schema)
+
+        self._options.update(user_input)
+
+        return await self.async_step_config_mqtt()
+
+    async def async_step_config_mqtt(self, user_input=None):
+        if not user_input:
+            schema = vol.Schema({
+                self.v(CONF_MQTT_SERVER_HOST): str,
+                self.v(CONF_MQTT_SERVER_PORT): int,
+                self.v(CONF_MQTT_SERVER_USERNAME): str,
+                self.v(CONF_MQTT_SERVER_PASSWORD): str,
+            })
+            return self.async_show_form(step_id="config_mqtt", data_schema=schema)
 
         self._options.update(user_input)
 

@@ -1,8 +1,7 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#  SPDX-License-Identifier: Apache-2.0
 """
 Alexa Devices Sensors.
+
+SPDX-License-Identifier: Apache-2.0
 
 For more details about this platform, please refer to the documentation at
 https://community.home-assistant.io/t/echo-devices-alexa-as-media-player-testers-needed/58639
@@ -49,7 +48,7 @@ async def async_setup_platform(hass, config, add_devices_callback, discovery_inf
         "Timer": TimerSensor,
         "Reminder": ReminderSensor,
     }
-    account = config[CONF_EMAIL]
+    account = config[CONF_EMAIL] if config else discovery_info["config"][CONF_EMAIL]
     include_filter = config.get(CONF_INCLUDE_DEVICES, [])
     exclude_filter = config.get(CONF_EXCLUDE_DEVICES, [])
     account_dict = hass.data[DATA_ALEXAMEDIA]["accounts"][account]
@@ -127,8 +126,10 @@ async def async_unload_entry(hass, entry) -> bool:
     """Unload a config entry."""
     account = entry.data[CONF_EMAIL]
     account_dict = hass.data[DATA_ALEXAMEDIA]["accounts"][account]
+    _LOGGER.debug("Attempting to unload sensors")
     for key, sensors in account_dict["entities"]["sensor"].items():
         for device in sensors[key].values():
+            _LOGGER.debug("Removing %s", device)
             await device.async_remove()
     return True
 
@@ -184,7 +185,8 @@ class AlexaMediaNotificationSensor(Entity):
             # cancel any event triggers
             if self._tracker:
                 _LOGGER.debug(
-                    "%s: Cancelling old event", self,
+                    "%s: Cancelling old event",
+                    self,
                 )
                 self._tracker()
             if self._state != STATE_UNAVAILABLE:
@@ -208,7 +210,11 @@ class AlexaMediaNotificationSensor(Entity):
         )
         self.hass.bus.async_fire(
             "alexa_media_notification_event",
-            event_data={"email": hide_email(self._account), "event": self._active[0]},
+            event_data={
+                "email": hide_email(self._account),
+                "device": {"name": self.name, "entity_id": self.entity_id},
+                "event": self._active[0],
+            },
         )
 
     def _fix_alarm_date_time(self, value):
@@ -251,7 +257,7 @@ class AlexaMediaNotificationSensor(Entity):
         _LOGGER.debug("Sensor value %s", value)
         alarm = value[1][self._sensor_property]
         reminder = None
-        if isinstance(value[1][self._sensor_property], int):
+        if isinstance(value[1][self._sensor_property], (int, float)):
             reminder = True
             alarm = dt.as_local(
                 self._round_time(
@@ -324,14 +330,14 @@ class AlexaMediaNotificationSensor(Entity):
         if "notification_update" in event:
             if (
                 event["notification_update"]["dopplerId"]["deviceSerialNumber"]
-                == self._client.unique_id
+                == self._client.device_serial_number
             ):
                 _LOGGER.debug("Updating sensor %s", self)
                 self.async_schedule_update_ha_state(True)
 
     @property
     def available(self):
-        """Return the availabilty of the sensor."""
+        """Return the availability of the sensor."""
         return self._client.available
 
     @property
@@ -368,7 +374,7 @@ class AlexaMediaNotificationSensor(Entity):
 
     def _process_state(self, value):
         return (
-            value[self._sensor_property].replace(tzinfo=LOCAL_TIMEZONE).isoformat()
+            dt.as_local(value[self._sensor_property]).isoformat()
             if value
             else STATE_UNAVAILABLE
         )
@@ -431,13 +437,9 @@ class AlexaMediaNotificationSensor(Entity):
 
         attr = {
             "recurrence": self.recurrence,
-            "process_timestamp": 
-
-                dt.as_local(
-                        datetime.datetime.fromtimestamp(
-                            self._timestamp.timestamp()
-                        )
-                ).isoformat(),            
+            "process_timestamp": dt.as_local(
+                datetime.datetime.fromtimestamp(self._timestamp.timestamp())
+            ).isoformat(),
             "prior_value": self._process_state(self._prior_value),
             "total_active": len(self._active),
             "total_all": len(self._all),

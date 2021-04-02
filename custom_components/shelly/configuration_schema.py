@@ -31,7 +31,8 @@ SETTINGS_SCHEMA = vol.Schema({
     vol.Optional('voltage'): SETTING_SCHEMA,
     vol.Optional('power_factor'): SETTING_SCHEMA,
     vol.Optional('uptime'): SETTING_SCHEMA,
-    vol.Optional('rssi'): SETTING_SCHEMA
+    vol.Optional('rssi'): SETTING_SCHEMA,
+    vol.Optional('rssi_level'): SETTING_SCHEMA
 })
 
 DEVICE_SCHEMA = vol.Schema({
@@ -94,7 +95,11 @@ CONFIG_SCHEMA_ROOT = vol.Schema({
         vol.Optional(CONF_MDNS, default=DEFAULT_MDNS): cv.boolean,
         vol.Optional(CONF_HOST_IP, default='') : cv.string,
         vol.Optional(CONF_SETTINGS, default={}): SETTINGS_SCHEMA,
-        vol.Optional(CONF_MQTT_PORT, default=0): cv.positive_int
+        vol.Optional(CONF_MQTT_PORT): cv.positive_int,
+        vol.Optional(CONF_MQTT_SERVER_HOST, default=0): cv.string,
+        vol.Optional(CONF_MQTT_SERVER_PORT, default=1883): cv.positive_int,
+        vol.Optional(CONF_MQTT_SERVER_USERNAME, default=''): cv.string,
+        vol.Optional(CONF_MQTT_SERVER_PASSWORD, default=''): cv.string
     })
 
 CONFIG_SCHEMA = vol.Schema({

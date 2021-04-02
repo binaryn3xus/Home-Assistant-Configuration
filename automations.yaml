@@ -6,10 +6,15 @@
     platform: sun
   condition: []
   action:
-  - data: {}
-    service: script.sunrise_script
+  - service: mqtt.publish
+    data:
+      topic: NodeRed/routine/sunrise
+      payload: 'ON'
+      qos: 1
+      retain: false
+  mode: single
 - id: '1586116713458'
-  alias: Sunset Automation
+  alias: Sunset Automation (1 Hr Before)
   description: ''
   trigger:
   - event: sunset
@@ -17,8 +22,13 @@
     platform: sun
   condition: []
   action:
-  - data: {}
-    service: script.sunset_procedure
+  - service: mqtt.publish
+    data:
+      topic: NodeRed/routine/sunset1hourbefore
+      payload: 'ON'
+      qos: 1
+      retain: false
+  mode: single
 - id: '1586117279160'
   alias: Bed Time Automation
   description: ''
@@ -28,8 +38,13 @@
     to: 'on'
   condition: []
   action:
-  - data: {}
-    service: script.bedtime_joshua
+  - service: mqtt.publish
+    data:
+      topic: NodeRed/routine/bedtime
+      payload: 'ON'
+      qos: 1
+      retain: false
+  mode: single
 - id: '1589770574485'
   alias: Enable PiHole
   description: ''
@@ -68,4 +83,20 @@
   action:
   - data:
       message: Secondard Garage Open for longer than 30 minutes
-    service: notify.mobile_app_pixel_3_xl
+    service: notify.mobile_app_joshua_pixel_5
+  mode: single
+- id: '1612997864802'
+  alias: Sunset Automation
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+  condition: []
+  action:
+  - service: mqtt.publish
+    data:
+      topic: NodeRed/routine/sunset
+      payload: 'ON'
+      qos: 1
+      retain: false
+  mode: single

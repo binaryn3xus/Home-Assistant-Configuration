@@ -1,2 +1,4 @@
-sensor.secondary_garage_door_sensor:
+cover.secondary_garage_door:
+  icon: mdi:garage
+cover.primary_garage_door:
   icon: mdi:garage

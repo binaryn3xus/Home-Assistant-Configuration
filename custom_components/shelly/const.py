@@ -14,6 +14,8 @@ from homeassistant.const import (
     ENERGY_WATT_HOUR
 )
 
+DEVICE_CLASS_MOTION = 'motion'
+
 from homeassistant.components.binary_sensor import (
     DEVICE_CLASS_CONNECTIVITY
 )
@@ -44,6 +46,10 @@ CONF_DECIMALS = 'decimals'
 CONF_DIV = 'div'
 CONF_UNIT = 'unit'
 CONF_MQTT_PORT = 'mqtt_port'
+CONF_MQTT_SERVER_HOST = 'mqtt_server_host'
+CONF_MQTT_SERVER_PORT = 'mqtt_server_port'
+CONF_MQTT_SERVER_USERNAME = 'mqtt_server_username'
+CONF_MQTT_SERVER_PASSWORD = 'mqtt_server_password'
 
 #Debug settings used for testing
 CONF_LOCAL_PY_SHELLY = 'debug_local_py_shelly'
@@ -91,6 +97,7 @@ ATTRIBUTE_SHELLY_TYPE = 'shelly_type'
 ATTRIBUTE_SHELLY_ID = 'shelly_id'
 ATTRIBUTE_SSID = 'ssid'
 ATTRIBUTE_RSSI = 'rssi'
+ATTRIBUTE_RSSI_LEVEL = 'rssi_level'
 ATTRIBUTE_UPTIME = 'uptime'
 ATTRIBUTE_HAS_FIRMWARE_UPDATE = 'has_firmware_update'
 ATTRIBUTE_LATEST_FW = 'latest_fw_version'
@@ -129,6 +136,7 @@ ALL_ATTRIBUTES = {
     ATTRIBUTE_SHELLY_ID,
     ATTRIBUTE_SSID,
     ATTRIBUTE_RSSI,
+    ATTRIBUTE_RSSI_LEVEL,
     ATTRIBUTE_UPTIME,
     ATTRIBUTE_HAS_FIRMWARE_UPDATE,
     ATTRIBUTE_LATEST_FW,
@@ -172,12 +180,13 @@ DEFAULT_ATTRIBUTES = {
     ATTRIBUTE_SHELLY_TYPE,
     ATTRIBUTE_SHELLY_ID,
     ATTRIBUTE_HAS_FIRMWARE_UPDATE,
+    #ATTRIBUTE_RSSI_LEVEL,
     ATTRIBUTE_CLOUD_STATUS,
     ATTRIBUTE_SWITCH,
     ATTRIBUTE_OVER_POWER,
     ATTRIBUTE_OVER_TEMP,
     ATTRIBUTE_TOTAL_CONSUMPTION,
-    ATTRIBUTE_VOLTAGE,
+    #ATTRIBUTE_VOLTAGE,
     ATTRIBUTE_BATTERY,
     ATTRIBUTE_CLICK_CNT,
     ATTRIBUTE_CLICK_TYPE,
@@ -191,7 +200,9 @@ DEFAULT_ATTRIBUTES = {
 }
 
 SENSOR_ALL = 'all'
+SENSOR_DEFAULT = 'default'
 SENSOR_RSSI = 'rssi'
+SENSOR_RSSI_LEVEL = 'rssi_level'
 SENSOR_POWER = 'power'  #depreated, same as consumption
 SENSOR_CONSUMPTION = 'consumption'
 SENSOR_CURRENT_CONSUMPTION = 'current_consumption'
@@ -218,6 +229,7 @@ SENSOR_TOTAL_WORK_TIME = 'total_work_time'
 
 ALL_SENSORS = {
     SENSOR_RSSI: {'attr':'rssi'},
+    SENSOR_RSSI_LEVEL: {'attr':'rssi_level'},
     SENSOR_UPTIME: {'attr':'uptime'},
     SENSOR_OVER_POWER: {'attr':'over_power'},
     SENSOR_CURRENT_CONSUMPTION: {},
@@ -243,19 +255,22 @@ ALL_SENSORS = {
 
 EXTRA_SENSORS = {
     SENSOR_ALL: {},
+    SENSOR_DEFAULT: {},
     SENSOR_POWER: {},
     SENSOR_CONSUMPTION: {}
 }
 
 DEFAULT_SENSORS = [
     SENSOR_CURRENT_CONSUMPTION,
-    SENSOR_TOTAL_CONSUMPTION
+    SENSOR_TOTAL_CONSUMPTION,
+    SENSOR_SWITCH
 ]
 
 SENSOR_TYPE_TEMPERATURE = 'temperature'
 SENSOR_TYPE_HUMIDITY = 'humidity'
 SENSOR_TYPE_POWER = 'current_consumption'
 SENSOR_TYPE_RSSI = 'rssi'
+SENSOR_TYPE_RSSI_LEVEL = 'rssi_level'
 SENSOR_TYPE_UPTIME = 'uptime'
 SENSOR_TYPE_BATTERY = 'battery'
 SENSOR_TYPE_OVER_POWER = 'over_power'
@@ -278,6 +293,8 @@ SENSOR_TYPE_VIBRATION = 'vibration'
 SENSOR_TYPE_TILT = 'tilt'
 SENSOR_TYPE_PPM = 'ppm'
 SENSOR_TYPE_TOTAL_WORK_TIME = 'total_work_time'
+SENSOR_TYPE_EXT_SWITCH = 'external_switch'
+SENSOR_TYPE_MOTION = 'motion'
 
 SENSOR_TYPES_CFG = {
     SENSOR_TYPE_DEFAULT:
@@ -290,6 +307,8 @@ SENSOR_TYPES_CFG = {
         ['Consumption', POWER_WATT, 'mdi:flash-outline', None, None],
     SENSOR_TYPE_RSSI:
         ['RSSI', 'dB', 'mdi:wifi', None, None],
+    SENSOR_TYPE_RSSI_LEVEL:
+        ['RSSI Level', None, 'mdi:wifi', None, None],
     SENSOR_TYPE_UPTIME:
         ['Uptime', 's', 'mdi:timer-outline', None, None],
     SENSOR_TYPE_BATTERY:
@@ -318,13 +337,13 @@ SENSOR_TYPES_CFG = {
         ['Total returned', ENERGY_WATT_HOUR,
          'mdi:flash-circle', DEVICE_CLASS_POWER, None],
     SENSOR_TYPE_VOLTAGE:
-        ['Voltage', 'V', 'mdi:flash', None, None],
+        ['Voltage', 'V', 'mdi:alpha-v-circle-outline', None, None],
     SENSOR_TYPE_POWER_FACTOR:
         ['Power factor', None, 'mdi:flash', None, None],
     SENSOR_TYPE_CURRENT:
-        ['Current', 'A', 'mdi:flash', None, None],
+        ['Current', 'A', 'mdi:alpha-i-circle-outline', None, None],
     SENSOR_TYPE_CLICK_TYPE:
-        ['Click type', '', 'mdi:hockey-puck', None, None],
+        ['Click type', '', 'mdi:light-switch', None, None],
     SENSOR_TYPE_TILT:
         ['Tilt', '', 'mdi:angle-acute', None, None],
     SENSOR_TYPE_VIBRATION:
@@ -333,4 +352,8 @@ SENSOR_TYPES_CFG = {
         ['Concentration', 'PPM', 'mdi:gauge', None, None],
     SENSOR_TYPE_TOTAL_WORK_TIME:
         ['Total work time', 's', 'mdi:briefcase-clock', None, None],
+    SENSOR_TYPE_EXT_SWITCH:
+        ['External switch', '', 'mdi:electric-switch', None, 'bool'],
+    SENSOR_TYPE_MOTION:
+        ['Motion', '', 'mdi:motion-sensor', DEVICE_CLASS_MOTION, 'bool'],
 }

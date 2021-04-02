@@ -1,0 +1,6 @@
+kitchen_lights:
+  name: Kitchen Lights
+  entities:
+    - light.kitchen_bar_lt_level
+    - light.kitchen_glass_lt_level
+    - light.kitchen_sink_lt_level

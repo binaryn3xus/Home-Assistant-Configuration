@@ -1,0 +1,10 @@
+platform: template
+sensors:
+  joshua_work_from_home:
+    friendly_name: "Working From Home"
+    value_template: >
+            {% if is_state('device_tracker.ctnal0066412565', 'home') %}
+              true
+            {% else %}
+              false
+            {% endif %}

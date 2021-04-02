@@ -47,12 +47,15 @@ class ShellyDevice(RestoreEntity):
 
         self._settings = instance.get_settings(dev.id, dev.block.id)
 
+    def _update_ha_state(self):
+        self.schedule_update_ha_state(True)
+
     def _updated(self, _block):
         """Receive events when the switch state changed (by mobile,
         switch etc)"""
         disabled = self.registry_entry and self.registry_entry.disabled_by
         if self.entity_id is not None and not self._is_removed and not disabled:
-            self.schedule_update_ha_state(True)
+            self._update_ha_state()
 
         if self._dev.info_values is not None:
             device_sensors = self.instance.device_sensors
@@ -90,7 +93,11 @@ class ShellyDevice(RestoreEntity):
         if key in dev.info_values_coap:
             dbg += ", C=" + str(dev.info_values_coap[key])
         if key in dev.info_values_status:
-            dbg += ", S=" + str(dev.info_values_status[key])
+            dbg += ", R=" + str(dev.info_values_status[key])
+        if key in dev.info_values_mqtt:
+            dbg += ", M=" + str(dev.info_values_mqtt[key])
+        if key in dev.info_values_mqtt_status:
+            dbg += ", MS=" + str(dev.info_values_mqtt_status[key])
         return dbg
 
     def _debug_add_state_info(self, attrs):
@@ -100,6 +107,10 @@ class ShellyDevice(RestoreEntity):
             attrs['state_CoAP'] = self._dev.state_coap
         if self._dev.state_status is not None:
             attrs['state_RESTAPI'] = self._dev.state_status
+        if self._dev.state_mqtt is not None:
+            attrs['state_MQTT'] = self._dev.state_mqtt
+        if self._dev.state_mqtt_status is not None:
+            attrs['state_MQTT_status'] = self._dev.state_mqtt_status
 
     @property
     def device_state_attributes(self):

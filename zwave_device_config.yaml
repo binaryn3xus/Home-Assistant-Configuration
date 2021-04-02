@@ -1,0 +1,150 @@
+light.mbr_outlet_level:
+  ignored: false
+  polling_intensity: 1
+light.office_overhead_light_level:
+  ignored: false
+  polling_intensity: 1
+light.kitchen_sink_lt_level:
+  ignored: false
+  polling_intensity: 1
+light.back_floodlights_level:
+  ignored: false
+  polling_intensity: 1
+light.back_porch_light_level:
+  ignored: false
+  polling_intensity: 1
+switch.bar_outlet_switch:
+  ignored: false
+  polling_intensity: 1
+sensor.cr10s_s4_energy_3:
+  ignored: false
+  polling_intensity: 1
+sensor.cr10s_s4_exporting_3:
+  ignored: false
+  polling_intensity: 1
+sensor.cr10s_s4_interval_5:
+  ignored: false
+  polling_intensity: 1
+sensor.cr10s_s4_interval_6:
+  ignored: false
+  polling_intensity: 1
+switch.3dprinter_cr10s_s4:
+  ignored: false
+  polling_intensity: 1
+sensor.cr10s_s4_power_3:
+  ignored: false
+  polling_intensity: 1
+sensor.cr10s_s4_power_6:
+  ignored: false
+  polling_intensity: 1
+sensor.cr10s_s4_previous_reading_5:
+  ignored: false
+  polling_intensity: 1
+sensor.cr10s_s4_previous_reading_6:
+  ignored: false
+  polling_intensity: 1
+sensor.ender_3_energy_2:
+  ignored: false
+  polling_intensity: 1
+sensor.ender_3_exporting_2:
+  ignored: false
+  polling_intensity: 1
+sensor.ender_3_interval_3:
+  ignored: false
+  polling_intensity: 1
+sensor.ender_3_interval_4:
+  ignored: false
+  polling_intensity: 1
+switch.3dprinter_ender3:
+  ignored: false
+  polling_intensity: 1
+sensor.ender_3_power_2:
+  ignored: false
+  polling_intensity: 1
+sensor.ender_3_power_5:
+  ignored: false
+  polling_intensity: 1
+sensor.ender_3_previous_reading_3:
+  ignored: false
+  polling_intensity: 1
+sensor.ender_3_previous_reading_4:
+  ignored: false
+  polling_intensity: 1
+switch.ext_lr_outlet_switch:
+  ignored: false
+  polling_intensity: 1
+light.front_floodlight_level:
+  ignored: false
+  polling_intensity: 1
+light.front_porch_light_level:
+  ignored: false
+  polling_intensity: 1
+light.garage_entry_light_level:
+  ignored: false
+  polling_intensity: 1
+switch.heatingpad:
+  ignored: false
+  polling_intensity: 1
+sensor.heatpad_energy:
+  ignored: false
+  polling_intensity: 1
+sensor.heatpad_exporting:
+  ignored: false
+  polling_intensity: 1
+sensor.heatpad_interval:
+  ignored: false
+  polling_intensity: 1
+sensor.heatpad_interval_2:
+  ignored: false
+  polling_intensity: 1
+sensor.heatpad_power:
+  ignored: false
+  polling_intensity: 1
+sensor.heatpad_power_2:
+  ignored: false
+  polling_intensity: 1
+sensor.heatpad_previous_reading:
+  ignored: false
+  polling_intensity: 1
+sensor.heatpad_previous_reading_2:
+  ignored: false
+  polling_intensity: 1
+light.garage_second_light:
+  ignored: false
+  polling_intensity: 1
+light.kitchen_bar_lt_level:
+  ignored: false
+  polling_intensity: 1
+light.kitchen_glass_lt_level:
+  ignored: false
+  polling_intensity: 1
+switch.living_room_fan_switch:
+  ignored: false
+  polling_intensity: 1
+light.living_room_ligh_level:
+  ignored: false
+  polling_intensity: 1
+light.loft_area_light_level:
+  ignored: false
+  polling_intensity: 1
+switch.mbr_fan_switch:
+  ignored: false
+  polling_intensity: 1
+light.mbr_light_level:
+  ignored: false
+  polling_intensity: 1
+light.nook_light_level:
+  ignored: false
+  polling_intensity: 1
+light.primary_garage_l_level:
+  ignored: false
+  polling_intensity: 1
+light.stairway_light_level:
+  ignored: false
+  polling_intensity: 1
+switch.dragon_tech_unknown_type_4447_id_3031_switch:
+  ignored: false
+  polling_intensity: 1
+switch.front_porch_outl_switch:
+  ignored: false
+  polling_intensity: 1

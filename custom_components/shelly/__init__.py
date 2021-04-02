@@ -25,9 +25,12 @@ from homeassistant.helpers.dispatcher import async_dispatcher_send
 from homeassistant.helpers.restore_state import RestoreStateData
 from homeassistant.helpers.storage import Store
 from homeassistant.helpers.json import JSONEncoder
-from homeassistant.components.zeroconf import (
-    async_get_instance as zeroconf_async_get_instance
-)
+try:
+    from homeassistant.components.zeroconf import (
+        async_get_instance as zeroconf_async_get_instance
+    )
+except:
+    zeroconf_async_get_instance = None
 try: #Backward compatible with HA
     from homeassistant.helpers.entity_registry import ATTR_RESTORED
 except:
@@ -42,7 +45,7 @@ from .configuration_schema import CONFIG_SCHEMA, CONFIG_SCHEMA_ROOT
 
 _LOGGER = logging.getLogger(__name__)
 
-__version__ = "0.2.0"
+__version__ = "0.2.2"
 VERSION = __version__
 
 async def async_setup(hass, config):
@@ -129,9 +132,10 @@ class ShellyInstance():
             self.conf_attributes.add(ATTRIBUTE_SWITCH + "_1")
             self.conf_attributes.add(ATTRIBUTE_SWITCH + "_2")
         sensors = self.conf.get(CONF_SENSORS, {})
+        if SENSOR_DEFAULT in sensors:
+            self.conf[CONF_SENSORS] = DEFAULT_SENSORS
         if SENSOR_ALL in sensors:
             self.conf[CONF_SENSORS] = [*ALL_SENSORS.keys()]
-
         self._debug_msg = conf.get(CONF_DEBUG_ENABLE_INFO)
 
         hass.bus.async_listen_once(EVENT_HOMEASSISTANT_STOP, self.stop)
@@ -173,7 +177,8 @@ class ShellyInstance():
         pys.password = conf.get(CONF_PASSWORD)
         pys.cloud_auth_key = conf.get(CONF_CLOUD_AUTH_KEY)
         pys.cloud_server = conf.get(CONF_CLOUD_SERVER)
-        pys.zeroconf = await zeroconf_async_get_instance(self.hass)
+        if zeroconf_async_get_instance:
+            pys.zeroconf = await zeroconf_async_get_instance(self.hass)
         tmpl_name = conf.get(CONF_TMPL_NAME)
         if tmpl_name:
             pys.tmpl_name = tmpl_name
@@ -184,6 +189,7 @@ class ShellyInstance():
             pys.only_device_id = pys.only_device_id.upper()
         pys.igmp_fix_enabled = conf.get(CONF_IGMPFIX)
         pys.mdns_enabled = conf.get(CONF_MDNS)
+        pys.shelly_instance = self #Used for debuging only
         host_ip = conf.get(CONF_HOST_IP)
         if host_ip:
             if host_ip == 'ha':
@@ -191,6 +197,12 @@ class ShellyInstance():
             else:
                 pys.host_ip = host_ip
         pys.mqtt_port = conf.get(CONF_MQTT_PORT, 0)
+
+        pys.mqtt_server_host = conf.get(CONF_MQTT_SERVER_HOST, '')
+        pys.mqtt_server_port = conf.get(CONF_MQTT_SERVER_PORT, 1883)
+        pys.mqtt_server_username = conf.get(CONF_MQTT_SERVER_USERNAME, '')
+        pys.mqtt_server_password = conf.get(CONF_MQTT_SERVER_PASSWORD, '')
+
         pys.start()
         pys.discover()
 

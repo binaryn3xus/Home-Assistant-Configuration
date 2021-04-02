@@ -1,0 +1,8 @@
+platform: rest
+name: Tasmota Latest Version
+resource: https://api.github.com/repos/arendst/Sonoff-Tasmota/releases/latest
+value_template: '{{ value_json.tag_name }}'
+headers:
+  Accept: application/vnd.github.v3+json
+  Content-Type: application/json
+  User-Agent: Home Assistant REST sensor

@@ -1,17 +1,16 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#  SPDX-License-Identifier: Apache-2.0
 """
 Support to interface with Alexa Devices.
+
+SPDX-License-Identifier: Apache-2.0
 
 For more details about this platform, please refer to the documentation at
 https://community.home-assistant.io/t/echo-devices-alexa-as-media-player-testers-needed/58639
 """
 from datetime import timedelta
 
-__version__ = "3.2.1"
+__version__ = "3.8.5"
 PROJECT_URL = "https://github.com/custom-components/alexa_media_player/"
-ISSUE_URL = "{}issues".format(PROJECT_URL)
+ISSUE_URL = f"{PROJECT_URL}issues"
 
 DOMAIN = "alexa_media"
 DATA_ALEXAMEDIA = "alexa_media"
@@ -26,13 +25,20 @@ ALEXA_COMPONENTS = [
 ]
 DEPENDENT_ALEXA_COMPONENTS = ["notify", "switch", "sensor", "alarm_control_panel"]
 
+HTTP_COOKIE_HEADER = "# HTTP Cookie File"
 CONF_ACCOUNTS = "accounts"
 CONF_COOKIES_TXT = "cookies_txt"
 CONF_DEBUG = "debug"
+CONF_HASS_URL = "hass_url"
 CONF_INCLUDE_DEVICES = "include_devices"
 CONF_EXCLUDE_DEVICES = "exclude_devices"
 CONF_QUEUE_DELAY = "queue_delay"
 CONF_SECURITYCODE = "securitycode"
+CONF_OTPSECRET = "otp_secret"
+CONF_PROXY = "proxy"
+CONF_TOTP_REGISTER = "registered"
+CONF_OAUTH = "oauth"
+CONF_OAUTH_LOGIN = "oauth_login"
 DATA_LISTENER = "listener"
 
 EXCEPTION_TEMPLATE = "An exception of type {0} occurred. Arguments:\n{1!r}"
@@ -84,3 +90,8 @@ If you have any issues with this you need to open an issue here:
 """.format(
     DOMAIN, __version__, ISSUE_URL
 )
+
+AUTH_CALLBACK_PATH = "/auth/alexamedia/callback"
+AUTH_CALLBACK_NAME = "auth:alexamedia:callback"
+AUTH_PROXY_PATH = "/auth/alexamedia/proxy"
+AUTH_PROXY_NAME = "auth:alexamedia:proxy"
