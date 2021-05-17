@@ -1,7 +1,7 @@
 platform: mqtt
-name: "Kitchen Window Blinds Left"
-state_topic: "Blinds001/blindsCommand"
-command_topic: "Blinds001/blindsCommand"
+name: "Master Bedroom Blinds"
+state_topic: "Blinds007/blindsCommand"
+command_topic: "blinds/masterbedroom/blindsCommand"
 value_template: >
     {% if value == "CLOSE" %}
     closed

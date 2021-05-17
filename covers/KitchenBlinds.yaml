@@ -1,0 +1,13 @@
+platform: mqtt
+name: "Kitchen Blinds"
+state_topic: "Blinds001/blindsCommand"
+command_topic: "blinds/kitchen/blindsCommand"
+value_template: >
+    {% if value == "CLOSE" %}
+    closed
+    {% else %}
+    open
+    {% endif %}
+payload_open: "OPEN"
+payload_close: "CLOSE"
+retain: false

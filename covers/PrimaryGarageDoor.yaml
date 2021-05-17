@@ -1,7 +1,7 @@
 platform: mqtt
-name: "Secondary Garage Door"
-state_topic: "shellies/shelly-secondary-garage/input/0"
-command_topic: "shellies/shelly-secondary-garage/relay/0/command"
+name: "Primary Garage Door"
+state_topic: "shellies/shelly-primary-garage/input/0"
+command_topic: "shellies/shelly-primary-garage/relay/0/command"
 value_template: >
     {% if value == "0" %}
     closed

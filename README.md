@@ -1,6 +1,6 @@
 # Home Assistant Configuration
 
-This is my [Home Assistant](https://home-assistant.io/) configuration. I have installed HA on a [HP ProDesk 600 G3 Mini](https://support.hp.com/us-en/document/c05364047). I am running Ubuntu 18.04 on this machine and running mostly Docker images on it. This includes the [Home Assistant Docker Image](https://hub.docker.com/r/homeassistant/home-assistant/).
+This is my [Home Assistant](https://home-assistant.io/) configuration. I have installed HA on a [HP ProDesk 600 G3 Mini](https://support.hp.com/us-en/document/c05364047). I am running Ubuntu on this machine and running mostly Docker images on it. This includes the [Home Assistant Docker Image](https://hub.docker.com/r/homeassistant/home-assistant/).
 
 I regularly update my configuration files. You can check my current HA version [here](.HA_VERSION). If you like anything here, be sure to star my repo!
 
@@ -20,13 +20,11 @@ Proud Supporter of [NabuCasa](https://www.nabucasa.com/) - Help keep Home Assist
 
   * [Abode Home Security](https://home-assistant.io/components/alarm_control_panel.abode/)
   * [EcoBee Thermostat](https://www.home-assistant.io/components/ecobee/)
-  * [Join](https://www.home-assistant.io/components/joaoapps_join/)
   * [Logitech Harmony Hub](https://www.home-assistant.io/integrations/harmony/)
   * [Meteorologisk institutt (Met.no)](https://www.home-assistant.io/integrations/met/)
   * [Moon](https://www.home-assistant.io/components/sensor.moon/)
   * [Network UPS Tools (NUT)](https://www.home-assistant.io/integrations/nut/)
   * [OctoPrint](https://www.home-assistant.io/components/octoprint/)
-  * [Pi-hole](https://www.home-assistant.io/integrations/pi_hole/)
   * [Plex Media Server](https://www.home-assistant.io/integrations/plex/)
   * [Ring Video Doorbell](https://home-assistant.io/components/ring/) 
   * [Sonoff](https://sonoff.itead.cc/en/)

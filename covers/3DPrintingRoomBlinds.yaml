@@ -1,0 +1,13 @@
+platform: mqtt
+name: "3D Printing Room Blinds"
+state_topic: "Blinds009/blindsCommand"
+command_topic: "blinds/3dprintroom/blindsCommand"
+value_template: >
+    {% if value == "CLOSE" %}
+    closed
+    {% else %}
+    open
+    {% endif %}
+payload_open: "OPEN"
+payload_close: "CLOSE"
+retain: false

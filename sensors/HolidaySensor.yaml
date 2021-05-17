@@ -5,7 +5,7 @@ sensors:
     value_template: >
             {% if now().strftime("%B") == "February" and now().strftime("%-d")|int == 14 %}
               VALENTINES
-            {% elif now().strftime("%B") == "July" and now().strftime("%-d")|int > 04 %}
+            {% elif now().strftime("%B") == "July" and now().strftime("%-d")|int > 4 %}
               INDEPENDENCE
             {% elif now().strftime("%B") == "October" %}
               HALLOWEEN

@@ -2,3 +2,5 @@ cover.secondary_garage_door:
   icon: mdi:garage
 cover.primary_garage_door:
   icon: mdi:garage
+cover.primary_garage_door_2:
+  icon: mdi:garage
