@@ -4,13 +4,13 @@
 
 ## ⚠️ This repo will be removed soon. It is outdated and does not accurately represent my Home Assistant instance anymore
 
+## 💙 Remember Support [NabuCasa](https://www.nabucasa.com/) - Help keep Home Assistant alive and growing!
+
 ---
 
 This is my [Home Assistant](https://home-assistant.io/) configuration. I have installed HA on a [HP ProDesk 600 G3 Mini](https://support.hp.com/us-en/document/c05364047). I am running Ubuntu on this machine and running mostly Docker images on it. This includes the [Home Assistant Docker Image](https://hub.docker.com/r/homeassistant/home-assistant/).
 
 I regularly update my configuration files. You can check my current HA version [here](.HA_VERSION). If you like anything here, be sure to star my repo!
-
-Proud Supporter of [NabuCasa](https://www.nabucasa.com/) - Help keep Home Assistant alive.
 
 ## Docker Containers Related to my Home Assistant Instance
 
